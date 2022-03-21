@@ -2,9 +2,8 @@ package cs2030.simulator;
 
 import java.util.Comparator;
 import java.util.Optional;
-import cs2030.util.Pair;
 
-abstract class Event implements Comparator<Event>{
+public abstract class Event<T, U> implements Comparator<Event>{
     private final Customer customer;
     private final double eventTime;
 
@@ -13,8 +12,12 @@ abstract class Event implements Comparator<Event>{
         this.eventTime = eventTime;
     }
 
-    double getEventTime() {
+    public double getEventTime() {
         return this.eventTime;
+    }
+
+    public Customer getCustomer() {
+        return this.customer;
     }
 
     @Override
@@ -22,7 +25,7 @@ abstract class Event implements Comparator<Event>{
         return Double.compare(a.getEventTime(), b.getEventTime());
     }
 
-    abstract Pair<Optional<Event>, Shop> execute(Shop shop);
+    abstract Pair<Optional<T>, Shop> execute(Shop shop);
 
     @Override
     public String toString() {

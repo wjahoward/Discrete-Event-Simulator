@@ -2,7 +2,7 @@ package cs2030.simulator;
 
 import java.util.List;
 
-class Shop {
+public class Shop {
     private final List<Server> servers;
 
     Shop(List<Server> servers) {

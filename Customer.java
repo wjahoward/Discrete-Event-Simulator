@@ -1,12 +1,16 @@
 package cs2030.simulator;
 
-class Customer {
+public class Customer {
     private final int id;
     private final double arrivalTime;
 
     Customer(int id, double arrivalTime) {
         this.id = id;
         this.arrivalTime = arrivalTime;
+    }
+
+    public int getId() {
+        return this.id;
     }
 
     @Override

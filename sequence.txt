@@ -2,9 +2,10 @@ ImList.java
 Pair.java
 PQ.java
 Customer.java
+Shop.java
+Server.java
 Event.java
 EventComparator.java
 EventStub.java
-Server.java
-Shop.java
-Simulator2.java
+Simulate2.java
+Simulate3.java

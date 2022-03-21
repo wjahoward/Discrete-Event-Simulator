@@ -1,9 +1,8 @@
 package cs2030.simulator;
 
 import java.util.Optional;
-import cs2030.util.Pair;
 
-class EventStub extends Event {
+public class EventStub extends Event {
 
     EventStub(Customer customer, double eventTime) {
         super(customer, eventTime);

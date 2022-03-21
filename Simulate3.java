@@ -2,13 +2,13 @@ package cs2030.simulator;
 
 import java.util.List;
 
-public class Simulate2 {
+public class Simulate3 {
     private final ImList<Server> servers;
     private final int numOfServers;
     private final List<Double> custArrivalTimes;
     private final PQ<EventStub> eventStubPQ;
 
-    public Simulate2(int numOfServers, List<Double> custArrivalTimes) {
+    public Simulate3(int numOfServers, List<Double> custArrivalTimes) {
         this.numOfServers = numOfServers;
         this.custArrivalTimes = custArrivalTimes;
         this.servers = getServers(numOfServers);
@@ -35,6 +35,7 @@ public class Simulate2 {
     public String run() {
         PQ<EventStub> test = this.eventStubPQ;
         String output = "";
+        System.out.println(test.toString());
         while (!test.isEmpty()) {
             output += test.poll().first() + "\n";
             test = test.poll().second();
