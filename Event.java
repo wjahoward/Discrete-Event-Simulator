@@ -1,5 +1,7 @@
 package cs2030.simulator;
 
+//import cs2030.util.Pair;
+
 import java.util.Comparator;
 import java.util.Optional;
 
@@ -29,6 +31,6 @@ public abstract class Event<T, U> implements Comparator<Event>{
 
     @Override
     public String toString() {
-        return String.format("%.3f", this.eventTime);
+        return String.format("%.3f %s", this.eventTime, this.getCustomer().toString());
     }
 }

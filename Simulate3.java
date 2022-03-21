@@ -1,5 +1,8 @@
 package cs2030.simulator;
 
+//import cs2030.util.PQ;
+//import cs2030.util.ImList;
+
 import java.util.List;
 
 public class Simulate3 {
@@ -35,9 +38,13 @@ public class Simulate3 {
     public String run() {
         PQ<EventStub> test = this.eventStubPQ;
         String output = "";
-        System.out.println(test.toString());
+        int currentNumOfServersUsed = 0;
         while (!test.isEmpty()) {
-            output += test.poll().first() + "\n";
+//            output += test.poll().first() + "\n";
+            EventStub es = test.poll().first();
+            Customer customer = es.getCustomer();
+            Arrive arrive = new Arrive(customer, es.getEventTime());
+            output += arrive.toString() + "\n";
             test = test.poll().second();
         }
         return output + "-- End of Simulation --";
