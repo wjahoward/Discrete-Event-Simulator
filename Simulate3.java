@@ -40,14 +40,33 @@ public class Simulate3 {
         String output = "";
         int currentNumOfServersUsed = 0;
         while (!test.isEmpty()) {
-//            output += test.poll().first() + "\n";
-            EventStub es = test.poll().first();
-            Customer customer = es.getCustomer();
-            Arrive arrive = new Arrive(customer, es.getEventTime());
-            output += arrive.toString() + "\n";
+            // arrive
+            output += arriveFunction(test) + "\n";
+
+            // serve
+            if (currentNumOfServersUsed < this.numOfServers + 1) {
+                currentNumOfServersUsed++;
+            } else {
+                output += leaveFunction(test) + "\n";
+            }
+
             test = test.poll().second();
         }
         return output + "-- End of Simulation --";
+    }
+
+    private String arriveFunction(PQ<EventStub> test) {
+        EventStub es = test.poll().first();
+        Customer customer = es.getCustomer();
+        Arrive arrive = new Arrive(customer, es.getEventTime());
+        return arrive.toString();
+    }
+
+    private String leaveFunction(PQ<EventStub> test) {
+        EventStub es = test.poll().first();
+        Customer customer = es.getCustomer();
+        Leave arrive = new Leave(customer, es.getEventTime());
+        return arrive.toString();
     }
 
     @Override
