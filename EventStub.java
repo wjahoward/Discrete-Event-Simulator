@@ -3,13 +3,10 @@ package cs2030.simulator;
 import java.util.Optional;
 import cs2030.util.Pair;
 
-class EventStub implements Event {
-    private final Customer customer;
-    private final double eventTime;
+class EventStub extends Event {
 
     EventStub(Customer customer, double eventTime) {
-        this.customer = customer;
-        this.eventTime = eventTime;
+        super(customer, eventTime);
     }
 
     @Override
@@ -18,13 +15,4 @@ class EventStub implements Event {
         return test;
     }
 
-    @Override
-    public double getEventTime() {
-        return this.eventTime;
-    }
-
-    @Override
-    public String toString() {
-        return String.format("%.3f", this.eventTime);
-    }
 }
