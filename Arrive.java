@@ -1,6 +1,6 @@
 package cs2030.simulator;
 
-//import cs2030.util.Pair;
+import cs2030.util.Pair;
 
 import java.util.Optional;
 
@@ -12,8 +12,9 @@ public class Arrive extends Event {
         super(customer, eventTime);
     }
 
-    public Pair<Optional<Arrive>, Shop> execute(Shop shop) {
-        Pair<Optional<Arrive>, Shop> test = Pair.of(Optional.<Arrive>of(new Arrive(super.getCustomer()
+    @Override
+    public Pair<Optional<Event>, Shop> execute(Shop shop) {
+        Pair<Optional<Event>, Shop> test = Pair.of(Optional.<Event>of(new Arrive(super.getCustomer()
                     , super.getEventTime())), shop);
         return test;
     }

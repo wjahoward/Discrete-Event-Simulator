@@ -1,9 +1,11 @@
 package cs2030.simulator;
 
-//import cs2030.util.PQ;
-//import cs2030.util.ImList;
+import cs2030.util.PQ;
+import cs2030.util.ImList;
+import cs2030.util.Pair;
 
 import java.util.List;
+import java.util.Optional;
 
 public class Simulate3 {
     private final ImList<Server> servers;
@@ -38,28 +40,43 @@ public class Simulate3 {
     public String run() {
         PQ<EventStub> test = this.eventStubPQ;
         String output = "";
-        int currentNumOfServersUsed = 0;
+        ImList<Server> currentServers = servers;
+
+        // dummy variables
+        Customer customer = new Customer(1, 1);
+        double eventTime = 1;
+
+        Event currentEvent = new EventStub(customer, eventTime);
+
         while (!test.isEmpty()) {
             // arrive
+            Pair<Optional<Event>, Shop> arriveTest = arriveFunction(test);
+            System.out.println(arriveTest);
             output += arriveFunction(test) + "\n";
 
             // serve
-            if (currentNumOfServersUsed < this.numOfServers + 1) {
-                currentNumOfServersUsed++;
-            } else {
-                output += leaveFunction(test) + "\n";
-            }
+//            for (int i = 0; i < currentServers.size(); i++) {
+//                if (currentServers.get(i).isBusy) {
+//                    if (i + 1 == currentServers.size()) {
+//                        output += leaveFunction(test) + "\n";
+//                    }
+//                    continue;
+//                } else {
+//
+//                }
+//            }
 
             test = test.poll().second();
         }
         return output + "-- End of Simulation --";
     }
 
-    private String arriveFunction(PQ<EventStub> test) {
+    private Pair<Optional<Event>, Shop> arriveFunction(PQ<EventStub> test) {
         EventStub es = test.poll().first();
         Customer customer = es.getCustomer();
         Arrive arrive = new Arrive(customer, es.getEventTime());
-        return arrive.toString();
+//        return arrive.toString();
+        return arrive.execute(new Shop(this.servers));
     }
 
     private String leaveFunction(PQ<EventStub> test) {

@@ -2,9 +2,11 @@ package cs2030.simulator;
 
 public class Server {
     private final int id;
+    private final boolean isBusy;
 
     Server(int id) {
         this.id = id;
+        this.isBusy = false;
     }
 
     @Override
