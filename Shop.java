@@ -1,6 +1,6 @@
 package cs2030.simulator;
 
- import cs2030.util.ImList;
+import cs2030.util.ImList;
 
 import java.util.List;
 
@@ -10,7 +10,16 @@ public class Shop {
 
     public Shop(List<Server> servers) {
         this.servers = servers;
-        this.imServers = ImList.<Server>of();
+//        this.imServers = ImList.<Server>of();
+        this.imServers = getServers(servers);
+    }
+
+    private static ImList<Server> getServers(List<Server> servers) {
+        ImList<Server> test = ImList.<Server>of();
+        for (int i = 0; i < servers.size(); i++) {
+            test = test.add(servers.get(i));
+        }
+        return test;
     }
 
     public Shop(ImList<Server> servers) {
@@ -21,6 +30,6 @@ public class Shop {
 
     @Override
     public String toString() {
-        return this.servers.toString();
+        return this.imServers.toString();
     }
 }

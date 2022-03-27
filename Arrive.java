@@ -6,8 +6,6 @@ import java.util.Optional;
 
 public class Arrive extends Event {
 
-    private static final double SERVICE_TIME = 1.0;
-
     Arrive(Customer customer, double eventTime) {
         super(customer, eventTime);
     }
