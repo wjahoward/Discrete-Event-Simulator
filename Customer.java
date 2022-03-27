@@ -13,6 +13,10 @@ public class Customer {
         return this.id;
     }
 
+    public double getArrivalTime() {
+        return this.arrivalTime;
+    }
+
     @Override
     public String toString() {
         return String.format("%d", this.id);

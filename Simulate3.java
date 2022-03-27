@@ -12,12 +12,24 @@ public class Simulate3 {
     private final int numOfServers;
     private final List<Double> custArrivalTimes;
     private final PQ<EventStub> eventStubPQ;
+    private final ImList<Customer> customers;
+
+    private static final double SERVICE_TIME = 1.0;
 
     public Simulate3(int numOfServers, List<Double> custArrivalTimes) {
         this.numOfServers = numOfServers;
         this.custArrivalTimes = custArrivalTimes;
         this.servers = getServers(numOfServers);
         this.eventStubPQ = getEventStubPQ(custArrivalTimes);
+        this.customers = getCustomers(custArrivalTimes);
+    }
+
+    private ImList<Customer> getCustomers(List<Double> custArrivalTimes) {
+        ImList<Customer> currentCustomers = ImList.<Customer>of();
+        for (int i = 0; i < custArrivalTimes.size(); i++) {
+            currentCustomers = currentCustomers.add(new Customer(i, custArrivalTimes.get(i)));
+        }
+        return currentCustomers;
     }
 
     private ImList<Server> getServers(int numOfServers) {
@@ -46,13 +58,15 @@ public class Simulate3 {
         Customer customer = new Customer(1, 1);
         double eventTime = 1;
 
+        int i = 0;
         Event currentEvent = new EventStub(customer, eventTime);
 
         while (!test.isEmpty()) {
             // arrive
             Pair<Optional<Event>, Shop> arriveTest = arriveFunction(test);
-            System.out.println(arriveTest);
-            output += arriveFunction(test) + "\n";
+            Optional<Event> arriveFirst = arriveTest.first();
+            output += arriveFirst.orElse(new EventStub(this.customers.get(i),
+                    this.customers.get(i).getArrivalTime() + SERVICE_TIME)) + "\n";
 
             // serve
 //            for (int i = 0; i < currentServers.size(); i++) {

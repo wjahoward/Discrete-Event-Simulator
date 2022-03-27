@@ -10,7 +10,6 @@ public class Shop {
 
     public Shop(List<Server> servers) {
         this.servers = servers;
-//        this.imServers = ImList.<Server>of();
         this.imServers = getServers(servers);
     }
 
