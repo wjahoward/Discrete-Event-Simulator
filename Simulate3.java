@@ -51,8 +51,8 @@ public class Simulate3 {
         while (!test.isEmpty()) {
             // arrive
             Pair<Optional<Event>, Shop> arriveTest = arriveFunction(test);
-            System.out.println(arriveTest);
-            output += arriveFunction(test) + "\n";
+            System.out.println("t");
+            output += "hello world"+ "\n";
 
             // serve
 //            for (int i = 0; i < currentServers.size(); i++) {
@@ -75,7 +75,6 @@ public class Simulate3 {
         EventStub es = test.poll().first();
         Customer customer = es.getCustomer();
         Arrive arrive = new Arrive(customer, es.getEventTime());
-//        return arrive.toString();
         return arrive.execute(new Shop(this.servers));
     }
 
