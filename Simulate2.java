@@ -1,5 +1,10 @@
 package cs2030.simulator;
 
+import cs2030.simulator.Customer;
+import cs2030.simulator.EventComparator;
+import cs2030.simulator.EventStub;
+import cs2030.simulator.Server;
+
 import cs2030.util.ImList;
 import cs2030.util.PQ;
 

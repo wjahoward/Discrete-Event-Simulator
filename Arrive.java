@@ -12,11 +12,10 @@ import java.util.Optional;
 
 public class Arrive extends Event {
 
-    Arrive(Customer customer, double eventTime) {
+    public Arrive(Customer customer, double eventTime) {
         super(customer, eventTime);
     }
 
-    @Override
     public Pair<Optional<Event>, Shop> execute(Shop shop) {
         Pair<Optional<Event>, Shop> test = Pair.of(Optional.<Event>of(new Arrive(super.getCustomer()
                     , super.getEventTime())), shop);

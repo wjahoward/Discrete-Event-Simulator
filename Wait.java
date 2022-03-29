@@ -1,5 +1,10 @@
 package cs2030.simulator;
 
+import cs2030.simulator.Customer;
+import cs2030.simulator.Event;
+import cs2030.simulator.Server;
+import cs2030.simulator.Shop;
+
 import cs2030.util.ImList;
 import cs2030.util.Pair;
 
@@ -7,15 +12,8 @@ import java.util.Optional;
 
 public class Wait extends Event {
 
-    Wait(Customer customer, double eventTime) {
+    public Wait(Customer customer, double eventTime) {
         super(customer, eventTime);
-    }
-
-    @Override
-    public Pair<Optional<Event>, Shop> execute(Shop shop) {
-        Pair<Optional<Event>, Shop> test = Pair.of(Optional.<Event>of(new Wait(super.getCustomer()
-                , super.getEventTime())), updateShop(ImList.<Server>of(), super.getCustomer()));
-        return test;
     }
 
     public Pair<Optional<Event>, Shop> execute(ImList<Server> servers, Customer customer) {

@@ -1,19 +1,21 @@
 package cs2030.simulator;
 
+import cs2030.simulator.EventState;
+
 public class Customer {
     private final int id;
     private final double arrivalTime;
     private final EventState currentCustomerState;
     private final int serverId;
 
-    Customer(int id, double arrivalTime) {
+    public Customer(int id, double arrivalTime) {
         this.id = id;
         this.arrivalTime = arrivalTime;
         this.currentCustomerState = EventState.ARRIVE;
         this.serverId = -1;
     }
 
-    Customer(int id, double arrivalTime, EventState changeState, int serverServedId) {
+    public Customer(int id, double arrivalTime, EventState changeState, int serverServedId) {
         this.id = id;
         this.arrivalTime = arrivalTime;
         this.currentCustomerState = changeState;

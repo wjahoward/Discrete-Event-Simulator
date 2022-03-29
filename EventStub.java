@@ -1,6 +1,8 @@
 package cs2030.simulator;
 
 import cs2030.simulator.Customer;
+import cs2030.simulator.Event;
+import cs2030.simulator.Shop;
 
 import cs2030.util.Pair;
 
@@ -12,10 +14,17 @@ public class EventStub extends Event {
         super(customer, eventTime);
     }
 
-    @Override
     public Pair<Optional<Event>, Shop> execute(Shop shop) {
         Pair<Optional<Event>, Shop> test = Pair.of(Optional.<Event>empty(), shop);
         return test;
+    }
+
+    public double getEventTime() {
+        return super.getEventTime();
+    }
+
+    public Customer getCustomer() {
+        return super.getCustomer();
     }
 
     @Override
