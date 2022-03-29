@@ -7,24 +7,28 @@ import cs2030.simulator.EventState;
 import cs2030.simulator.EventStub;
 import cs2030.simulator.Server;
 import cs2030.simulator.Shop;
+import cs2030.simulator.Statistic;
 
 import cs2030.util.CustomerUtil;
 import cs2030.util.EventShopUtil;
 import cs2030.util.FixedVariablesUtil;
 import cs2030.util.ImList;
 import cs2030.util.Pair;
-import cs2030.util.PQ;;
+import cs2030.util.PQ;
 
+import java.util.function.Supplier;
 import java.util.List;
 import java.util.Optional;
 
-public class Simulate3 {
+public class Simulate5 {
     private final ImList<Server> servers;
     private final PQ<EventStub> eventStubPQ;
+    private final List<Pair<Double, Supplier<Double>>> list;
 
-    public Simulate3(int numOfServers, List<Double> custArrivalTimes) {
+    public Simulate5(int numOfServers, List<Pair<Double, Supplier<Double>>> list) {
         this.servers = getServers(numOfServers);
-        this.eventStubPQ = getEventStubPQ(custArrivalTimes);
+        this.eventStubPQ = getEventStubPQ(list);
+        this.list = list;
     }
 
     private static ImList<Server> getServers(int numOfServers) {
@@ -35,10 +39,10 @@ public class Simulate3 {
         return currentServers;
     }
 
-    private static PQ<EventStub> getEventStubPQ(List<Double> custArrivalTimes) {
+    private static PQ<EventStub> getEventStubPQ(List<Pair<Double, Supplier<Double>>> list) {
         PQ<EventStub> currentEventStubs = new PQ<EventStub>(new EventComparator());
-        for (int i = 0; i < custArrivalTimes.size(); i++) {
-            double time = custArrivalTimes.get(i);
+        for (int i = 0; i < list.size(); i++) {
+            double time = list.get(i).first();
             Customer newCustomer = new Customer(i + 1, time);
             currentEventStubs = currentEventStubs.add(new EventStub(newCustomer, time));
         }
@@ -48,7 +52,10 @@ public class Simulate3 {
     public String run() {
         PQ<EventStub> currentEventStub = this.eventStubPQ;
         ImList<Server> currentServers = this.servers;
+        Statistic statistic = new Statistic();
         String output = "";
+        // counter
+        int j = 0;
 
         while (!currentEventStub.isEmpty()) {
             EventStub es = currentEventStub.poll().first();
@@ -64,7 +71,8 @@ public class Simulate3 {
                 Shop shopSecond = arriveTest.second();
                 customerLoop = CustomerUtil.subsequentFunction(customerLoop, shopSecond);
             } else if (eventTypeCustomerLoop == EventState.SERVE) {
-                Pair<Optional<Event>, Shop> serveEvent = EventShopUtil.serveFunction(es, customerLoop, currentServers, FixedVariablesUtil.SERVICE_TIME);
+                double serviceTime = this.list.get(j).second().get();
+                Pair<Optional<Event>, Shop> serveEvent = EventShopUtil.serveFunction(es, customerLoop, currentServers, serviceTime);
                 Optional<Event> serveFirst = serveEvent.first();
                 Event newEventStub = serveFirst.orElse(new Event(customerLoop,
                         customerLoop.getArrivalTime()));
@@ -75,7 +83,9 @@ public class Simulate3 {
                 // change to done event
                 customerLoop = CustomerUtil.subsequentDoneFunction(customerLoop);
                 // update es event time
-                es = new EventStub(newEventStub.getCustomer(), newEventStub.getEventTime() + 1.0);
+                es = new EventStub(newEventStub.getCustomer(), newEventStub.getEventTime() + serviceTime);
+                statistic = statistic.addNumOfCustomersServed();
+                j++;
             } else if (eventTypeCustomerLoop == EventState.DONE) {
                 Pair<Optional<Event>, Shop> doneEvent = EventShopUtil.doneFunction(es, customerLoop, currentServers);
                 Optional<Event> doneFirst = doneEvent.first();
@@ -92,7 +102,9 @@ public class Simulate3 {
                 output += leaveFirst.orElse(new Event(customerLoop,
                         customerLoop.getArrivalTime())) + "\n";
                 customerLoop = CustomerUtil.subsequentDefaultFunction(customerLoop);
+                statistic = statistic.addNumOfCustomersLeftWithoutServed();
             } else if (eventTypeCustomerLoop == EventState.WAIT) {
+                double defaultArrivalTime = customerLoop.getArrivalTime();
                 Pair<Optional<Event>, Shop> waitEvent = EventShopUtil.waitFunction(es, customerLoop, currentServers);
                 Optional<Event> waitFirst = waitEvent.first();
                 Event newEventStub = waitFirst.orElse(new Event(customerLoop,
@@ -109,18 +121,19 @@ public class Simulate3 {
                 // second element: serverServedId
                 Pair<Double, Integer> nextAvailableTimeServerServedId = getNextAvailableTimeServerServedId(currentServers, customerId);
                 customerLoop = new Customer(customerId,
-                            nextAvailableTimeServerServedId.first(), customerLoop.getCurrentCustomerState(),
-                            nextAvailableTimeServerServedId.second());
+                        nextAvailableTimeServerServedId.first(), customerLoop.getCurrentCustomerState(),
+                        nextAvailableTimeServerServedId.second());
                 es = new EventStub(customerLoop, nextAvailableTimeServerServedId.first());
+                statistic = statistic.addWaitingTime(nextAvailableTimeServerServedId.first() -
+                        defaultArrivalTime);
             }
 
             currentEventStub = currentEventStub.poll().second();
-
             if (customerLoop.getCurrentCustomerState() != EventState.DEFAULT) {
                 currentEventStub = currentEventStub.add(new EventStub(customerLoop, es.getEventTime()));
             }
         }
-        return output + "-- End of Simulation --";
+        return output + statistic.toString();
     }
 
     private Pair<Double, Integer> getNextAvailableTimeServerServedId(ImList<Server> servers, int customerId) {
@@ -128,11 +141,11 @@ public class Simulate3 {
             Server currentServer = servers.get(i);
             if (currentServer.getWaitCustomerId() == customerId) {
                 return Pair.of(currentServer.getNextAvailableTime(),
-                            currentServer.getServerId());
+                        currentServer.getServerId());
             }
         }
 
-       return Pair.of(-1.0, -1);
+        return Pair.of(-1.0, -1);
     }
 
     @Override

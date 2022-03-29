@@ -27,7 +27,6 @@ public class Wait extends Event {
         ImList<Server> newShop = ImList.<Server>of();
 
         int onlyOneWaitUpdated = 1;
-
         for (int i = 0; i < currentShop.size(); i++) {
             Server currentServer = currentShop.get(i);
             if (currentServer.getWaitCustomerId() == -1 && onlyOneWaitUpdated == 1) {

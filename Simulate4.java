@@ -66,7 +66,7 @@ public class Simulate4 {
                 Shop shopSecond = arriveTest.second();
                 customerLoop = CustomerUtil.subsequentFunction(customerLoop, shopSecond);
             } else if (eventTypeCustomerLoop == EventState.SERVE) {
-                Pair<Optional<Event>, Shop> serveEvent = EventShopUtil.serveFunction(es, customerLoop, currentServers);
+                Pair<Optional<Event>, Shop> serveEvent = EventShopUtil.serveFunction(es, customerLoop, currentServers, FixedVariablesUtil.SERVICE_TIME);
                 Optional<Event> serveFirst = serveEvent.first();
                 Event newEventStub = serveFirst.orElse(new Event(customerLoop,
                         customerLoop.getArrivalTime()));

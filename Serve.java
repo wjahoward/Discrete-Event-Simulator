@@ -17,13 +17,12 @@ public class Serve extends Event {
         super(customer, eventTime);
     }
 
-    public Pair<Optional<Event>, Shop> execute(ImList<Server> servers, Customer customer) {
-        Pair<Optional<Event>, Shop> test = Pair.of(Optional.<Event>of(new Serve(super.getCustomer()
-                , super.getCustomer().getArrivalTime())), updateShop(servers, customer));
-        return test;
+    public Pair<Optional<Event>, Shop> execute(ImList<Server> servers, Customer customer, double serviceTime) {
+        return Pair.of(Optional.<Event>of(new Serve(super.getCustomer()
+                , super.getCustomer().getArrivalTime())), updateShop(servers, customer, serviceTime));
     }
 
-    private Shop updateShop(ImList<Server> servers, Customer customer) {
+    private Shop updateShop(ImList<Server> servers, Customer customer, double serviceTime) {
         ImList<Server> currentShop = servers;
         ImList<Server> newShop = ImList.<Server>of();
 
@@ -32,7 +31,7 @@ public class Serve extends Event {
         for (int i = 0; i < currentShop.size(); i++) {
             Server currentServer = currentShop.get(i);
             if (!currentServer.getIsBusy() && onlyOneServeUpdated == 1) {
-                newShop = newShop.add(currentServer.serveNewCustomer(customer));
+                newShop = newShop.add(currentServer.serveNewCustomer(customer, serviceTime));
                 onlyOneServeUpdated--;
             } else {
                 newShop = newShop.add(currentShop.get(i));

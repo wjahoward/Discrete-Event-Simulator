@@ -15,9 +15,8 @@ public class Leave extends Event {
     }
 
     public Pair<Optional<Event>, Shop> execute(Shop shop) {
-        Pair<Optional<Event>, Shop> test = Pair.of(Optional.<Event>of(new Leave(super.getCustomer()
+        return Pair.of(Optional.<Event>of(new Leave(super.getCustomer()
                 , super.getEventTime())), shop);
-        return test;
     }
 
     @Override

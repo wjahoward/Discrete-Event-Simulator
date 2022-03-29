@@ -61,9 +61,9 @@ public class Server {
         return !this.getIsBusy() && this.nextAvailableTime <= customer.getArrivalTime();
     }
 
-    public Server serveNewCustomer(Customer customer) {
+    public Server serveNewCustomer(Customer customer, double serviceTime) {
         return new Server(this.id, true,
-                    customer.getCustomerId(), -1, customer.getArrivalTime() + FixedVariablesUtil.SERVICE_TIME);
+                customer.getCustomerId(), -1, customer.getArrivalTime() + serviceTime);
     }
 
     public Server waitNewCustomer(Customer customer) {

@@ -18,15 +18,13 @@ public class Done extends Event {
     }
 
     public Pair<Optional<Event>, Shop> execute(Shop shop) {
-        Pair<Optional<Event>, Shop> test = Pair.of(Optional.<Event>of(new Done(super.getCustomer()
+        return Pair.of(Optional.<Event>of(new Done(super.getCustomer()
                 , super.getEventTime())), shop);
-        return test;
     }
 
     public Pair<Optional<Event>, Shop> execute(Shop shop, Customer customer, EventStub es) {
-        Pair<Optional<Event>, Shop> test = Pair.of(Optional.<Event>of(new Done(super.getCustomer()
+        return Pair.of(Optional.<Event>of(new Done(super.getCustomer()
                 , es.getEventTime())), updateShop(shop, customer));
-        return test;
     }
 
     private Shop updateShop(Shop shop, Customer customer) {
@@ -44,8 +42,9 @@ public class Done extends Event {
                 newShop = newShop.add(new Server(currentServer.getServerId(), isBusy,
                             -1, 0));
                 onlyOneServeUpdated--;
+            } else {
+                newShop = newShop.add(currentShop.get(i));
             }
-            newShop = newShop.add(currentShop.get(i));
         }
 
         return new Shop(newShop);
