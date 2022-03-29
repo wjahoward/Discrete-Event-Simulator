@@ -2,6 +2,8 @@ package cs2030.simulator;
 
 import cs2030.simulator.Customer;
 
+import cs2030.util.FixedVariablesUtil;
+
 import java.util.Optional;
 
 public class Server {
@@ -10,8 +12,6 @@ public class Server {
     private final int serveCustomerId;
     private final int waitCustomerId;
     private final double nextAvailableTime;
-
-    private static final double SERVICE_TIME = 1.0;
 
     public Server(int id) { // free
         this.id = id;
@@ -63,7 +63,7 @@ public class Server {
 
     public Server serveNewCustomer(Customer customer) {
         return new Server(this.id, true,
-                    customer.getCustomerId(), -1, customer.getArrivalTime() + SERVICE_TIME);
+                    customer.getCustomerId(), -1, customer.getArrivalTime() + FixedVariablesUtil.SERVICE_TIME);
     }
 
     public Server waitNewCustomer(Customer customer) {
