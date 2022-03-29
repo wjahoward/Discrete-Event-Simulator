@@ -1,5 +1,7 @@
 package cs2030.simulator;
 
+import cs2030.simulator.Server;
+
 import cs2030.util.ImList;
 
 import java.util.List;
@@ -25,6 +27,20 @@ public class Shop {
         // dummy variable
         this.servers = List.<Server>of(new Server(1));
         this.imServers = servers;
+    }
+
+    public ImList<Server> getImServers() {
+        return this.imServers;
+    }
+
+    public boolean checkAllImServersBusy() {
+        for (int i = 0; i < this.imServers.size(); i++) {
+            Server currentServer = this.imServers.get(i);
+            if (!currentServer.getIsBusy()) {
+                return false;
+            }
+        }
+        return true;
     }
 
     @Override

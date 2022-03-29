@@ -1,6 +1,9 @@
 package cs2030.simulator;
 
+import cs2030.simulator.Customer;
+
 import cs2030.util.Pair;
+
 import java.util.Optional;
 
 public class EventStub extends Event {
