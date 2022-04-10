@@ -30,14 +30,13 @@ public class Serve extends Event {
 
         for (int i = 0; i < currentShop.size(); i++) {
             Server currentServer = currentShop.get(i);
-            if (!currentServer.getIsBusy() && onlyOneServeUpdated == 1) {
+            if (!currentServer.getIsBusyServing() && onlyOneServeUpdated == 1) {
                 newShop = newShop.add(currentServer.serveNewCustomer(customer, serviceTime));
                 onlyOneServeUpdated--;
             } else {
-                newShop = newShop.add(currentShop.get(i));
+                newShop = newShop.add(currentServer);
             }
         }
-
         return new Shop(newShop);
     }
 

@@ -9,18 +9,21 @@ import cs2030.util.ImList;
 
 public class CustomerUtil {
 
-    public static Customer subsequentFunction(Customer customer, Shop shop) {
+    public static Customer subsequentFunction(Customer customer, Shop shop) {;
         ImList<Server> currentServers = shop.getImServers();
         for (int i = 0; i < currentServers.size(); i++) {
             Server currentServer = currentServers.get(i);
             if (shop.checkAllImServersBusy()) {
                 // either wait or leave
-                if (currentServer.getWaitCustomerId() == -1){
-                    // returning wait state
-                    return new Customer(customer.getCustomerId(), customer.getArrivalTime(),
-                            EventState.WAIT, currentServers.get(i).getServerId());
+                if (!shop.checkAllImServersWaiting()) {
+                    if (!currentServer.getIsMaxWaiting()) {
+                        // returning wait state
+                        return new Customer(customer.getCustomerId(), customer.getArrivalTime(),
+                                EventState.WAIT, currentServers.get(i).getServerId());
+                    }
                 }
-                else if (i + 1 == currentServers.size()) {
+
+                if (shop.checkAllImServersWaiting() && shop.checkAllImServersBusy()) {
                     // returning leave state
                     return new Customer(customer.getCustomerId(), customer.getArrivalTime(),
                             EventState.LEAVE, customer.getServerId());

@@ -28,6 +28,12 @@ public class PQ<T> {
         return newElems;
     }
 
+    public PQ<T> remove(T elem) {
+        PQ<T> newElems = new PQ<T>(this.cmp, this.elems);
+        newElems.elems.remove(elem);
+        return newElems;
+    }
+
     public boolean isEmpty() {
         return this.elems.isEmpty();
     }

@@ -25,18 +25,33 @@ public class Wait extends Event {
     private Shop updateShop(ImList<Server> servers, Customer customer) {
         ImList<Server> currentShop = servers;
         ImList<Server> newShop = ImList.<Server>of();
+        ImList<Customer> updatedCustomerList = ImList.<Customer>of();
 
         int onlyOneWaitUpdated = 1;
         for (int i = 0; i < currentShop.size(); i++) {
             Server currentServer = currentShop.get(i);
-            if (currentServer.getWaitCustomerId() == -1 && onlyOneWaitUpdated == 1) {
-                newShop = newShop.add(currentServer.waitNewCustomer(customer));
-                onlyOneWaitUpdated--;
+            if (currentServer.getIsMaxWaiting()) {
+                newShop = newShop.add(currentServer);
             } else {
-                newShop = newShop.add(currentShop.get(i));
+                System.out.println("\n" + currentServer.getWaitingCustomers());
+                for (int j = 0; j < currentServer.getWaitingCustomers().size(); j++) {
+                    Customer currentWaitingCustomer = currentServer.getWaitingCustomers().get(j);
+                    int currentWaitCustomerId = currentWaitingCustomer.getCustomerId();
+                    if (currentWaitCustomerId == -1 && onlyOneWaitUpdated == 1) {
+//                    newShop = newShop.add(currentServer.waitNewCustomer(customer));
+                        updatedCustomerList = updatedCustomerList.add(customer);
+                        onlyOneWaitUpdated--;
+                    } else {
+                        updatedCustomerList = updatedCustomerList.add(currentWaitingCustomer);
+                    }
+                }
+                System.out.println(customer.getCustomerId());
+                System.out.println(updatedCustomerList);
+                currentServer = new Server(currentServer, updatedCustomerList);
+                updatedCustomerList = ImList.<Customer>of();
+                newShop = newShop.add(currentServer);
             }
         }
-
         return new Shop(newShop);
     }
 

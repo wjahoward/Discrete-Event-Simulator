@@ -25,7 +25,7 @@ public class Shop {
 
     public Shop(ImList<Server> servers) {
         // dummy variable
-        this.servers = List.<Server>of(new Server(1));
+        this.servers = List.<Server>of(new Server(1, 1));
         this.imServers = servers;
     }
 
@@ -36,7 +36,17 @@ public class Shop {
     public boolean checkAllImServersBusy() {
         for (int i = 0; i < this.imServers.size(); i++) {
             Server currentServer = this.imServers.get(i);
-            if (!currentServer.getIsBusy()) {
+            if (!currentServer.getIsBusyServing()) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public boolean checkAllImServersWaiting() {
+        for (int i = 0; i < this.imServers.size(); i++) {
+            Server currentServer = this.imServers.get(i);
+            if (!currentServer.getIsMaxWaiting()) {
                 return false;
             }
         }

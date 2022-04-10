@@ -11,7 +11,6 @@ import cs2030.simulator.Statistic;
 
 import cs2030.util.CustomerUtil;
 import cs2030.util.EventShopUtil;
-import cs2030.util.FixedVariablesUtil;
 import cs2030.util.ImList;
 import cs2030.util.Pair;
 import cs2030.util.PQ;
@@ -31,7 +30,7 @@ public class Simulate4 {
     private static ImList<Server> getServers(int numOfServers) {
         ImList<Server> currentServers = ImList.<Server>of();
         for (int i = 1; i < numOfServers + 1; i++) {
-            currentServers = currentServers.add(new Server(i));
+            currentServers = currentServers.add(new Server(i, 1));
         }
         return currentServers;
     }
@@ -66,7 +65,8 @@ public class Simulate4 {
                 Shop shopSecond = arriveTest.second();
                 customerLoop = CustomerUtil.subsequentFunction(customerLoop, shopSecond);
             } else if (eventTypeCustomerLoop == EventState.SERVE) {
-                Pair<Optional<Event>, Shop> serveEvent = EventShopUtil.serveFunction(es, customerLoop, currentServers, FixedVariablesUtil.SERVICE_TIME);
+                double serviceTime = 1.0;
+                Pair<Optional<Event>, Shop> serveEvent = EventShopUtil.serveFunction(es, customerLoop, currentServers, serviceTime);
                 Optional<Event> serveFirst = serveEvent.first();
                 Event newEventStub = serveFirst.orElse(new Event(customerLoop,
                         customerLoop.getArrivalTime()));
@@ -77,7 +77,7 @@ public class Simulate4 {
                 // change to done event
                 customerLoop = CustomerUtil.subsequentDoneFunction(customerLoop);
                 // update es event time
-                es = new EventStub(newEventStub.getCustomer(), newEventStub.getEventTime() + FixedVariablesUtil.SERVICE_TIME);
+                es = new EventStub(newEventStub.getCustomer(), newEventStub.getEventTime() + serviceTime);
                 statistic = statistic.addNumOfCustomersServed();
             } else if (eventTypeCustomerLoop == EventState.DONE) {
                 Pair<Optional<Event>, Shop> doneEvent = EventShopUtil.doneFunction(es, customerLoop, currentServers);
@@ -118,10 +118,11 @@ public class Simulate4 {
                         nextAvailableTimeServerServedId.second());
                 es = new EventStub(customerLoop, nextAvailableTimeServerServedId.first());
                 statistic = statistic.addWaitingTime(nextAvailableTimeServerServedId.first() -
-                    defaultArrivalTime);
+                        defaultArrivalTime);
             }
 
             currentEventStub = currentEventStub.poll().second();
+
             if (customerLoop.getCurrentCustomerState() != EventState.DEFAULT) {
                 currentEventStub = currentEventStub.add(new EventStub(customerLoop, es.getEventTime()));
             }
@@ -132,9 +133,12 @@ public class Simulate4 {
     private Pair<Double, Integer> getNextAvailableTimeServerServedId(ImList<Server> servers, int customerId) {
         for (int i = 0; i < servers.size(); i++) {
             Server currentServer = servers.get(i);
-            if (currentServer.getWaitCustomerId() == customerId) {
-                return Pair.of(currentServer.getNextAvailableTime(),
-                        currentServer.getServerId());
+            for (int j = 0; j < currentServer.getWaitingCustomers().size(); j++) {
+                int currentWaitCustomerId = currentServer.getWaitingCustomers().get(j).getCustomerId();
+                if (currentWaitCustomerId == customerId) {
+                    return Pair.of(currentServer.getNextAvailableTime(),
+                            currentServer.getServerId());
+                }
             }
         }
 

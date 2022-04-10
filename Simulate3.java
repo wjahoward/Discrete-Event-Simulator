@@ -7,10 +7,9 @@ import cs2030.simulator.EventState;
 import cs2030.simulator.EventStub;
 import cs2030.simulator.Server;
 import cs2030.simulator.Shop;
-
+import cs2030.simulator.Statistic;
 import cs2030.util.CustomerUtil;
 import cs2030.util.EventShopUtil;
-import cs2030.util.FixedVariablesUtil;
 import cs2030.util.ImList;
 import cs2030.util.Pair;
 import cs2030.util.PQ;;
@@ -30,7 +29,7 @@ public class Simulate3 {
     private static ImList<Server> getServers(int numOfServers) {
         ImList<Server> currentServers = ImList.<Server>of();
         for (int i = 1; i < numOfServers + 1; i++) {
-            currentServers = currentServers.add(new Server(i));
+            currentServers = currentServers.add(new Server(i, 1));
         }
         return currentServers;
     }
@@ -64,7 +63,8 @@ public class Simulate3 {
                 Shop shopSecond = arriveTest.second();
                 customerLoop = CustomerUtil.subsequentFunction(customerLoop, shopSecond);
             } else if (eventTypeCustomerLoop == EventState.SERVE) {
-                Pair<Optional<Event>, Shop> serveEvent = EventShopUtil.serveFunction(es, customerLoop, currentServers, FixedVariablesUtil.SERVICE_TIME);
+                double serviceTime = 1.0;
+                Pair<Optional<Event>, Shop> serveEvent = EventShopUtil.serveFunction(es, customerLoop, currentServers, serviceTime);
                 Optional<Event> serveFirst = serveEvent.first();
                 Event newEventStub = serveFirst.orElse(new Event(customerLoop,
                         customerLoop.getArrivalTime()));
@@ -126,9 +126,12 @@ public class Simulate3 {
     private Pair<Double, Integer> getNextAvailableTimeServerServedId(ImList<Server> servers, int customerId) {
         for (int i = 0; i < servers.size(); i++) {
             Server currentServer = servers.get(i);
-            if (currentServer.getWaitCustomerId() == customerId) {
-                return Pair.of(currentServer.getNextAvailableTime(),
+            for (int j = 0; j < currentServer.getWaitingCustomers().size(); j++) {
+                int currentWaitCustomerId = currentServer.getWaitingCustomers().get(j).getCustomerId();
+                if (currentWaitCustomerId == customerId) {
+                    return Pair.of(currentServer.getNextAvailableTime(),
                             currentServer.getServerId());
+                }
             }
         }
 

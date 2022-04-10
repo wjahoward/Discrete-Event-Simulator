@@ -26,7 +26,7 @@ public class Simulate2 {
     private ImList<Server> getServers(int numOfServers) {
         ImList<Server> currentServers = ImList.<Server>of();
         for (int i = 1; i < numOfServers + 1; i++) {
-            currentServers = currentServers.add(new Server(i));
+            currentServers = currentServers.add(new Server(i, 1));
         }
         return currentServers;
     }

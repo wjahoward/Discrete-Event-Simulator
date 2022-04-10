@@ -37,10 +37,10 @@ public class Done extends Event {
 
         for (int i = 0; i < currentShop.size(); i++) {
             Server currentServer = currentShop.get(i);
-            if (currentServer.getIsBusy() && currentServer.getServerId() == serverIdServeCustomer &&
+            if (currentServer.getIsBusyServing() && currentServer.getServerId() == serverIdServeCustomer &&
                         onlyOneServeUpdated == 1) {
-                newShop = newShop.add(new Server(currentServer.getServerId(), isBusy,
-                            -1, 0));
+                newShop = newShop.add(new Server(currentServer.getServerId(), isBusy, -1,
+                            currentServer.getWaitingCustomers(), 0));
                 onlyOneServeUpdated--;
             } else {
                 newShop = newShop.add(currentShop.get(i));
