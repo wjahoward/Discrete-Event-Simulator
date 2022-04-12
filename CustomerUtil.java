@@ -29,6 +29,7 @@ public class CustomerUtil {
                             EventState.LEAVE, customer.getServerId());
                 }
             } else {
+                // TODO: check if is resting
                 if (currentServer.canServe(customer)) {
                     // returning serve state
                     return new Customer(customer.getCustomerId(), customer.getArrivalTime(),

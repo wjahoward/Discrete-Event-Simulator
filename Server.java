@@ -13,30 +13,40 @@ public class Server {
     private final ImList<Customer> waitingCustomers;
     private final boolean isMaxWaiting;
     private final double nextAvailableTime;
+    private final int qmax;
+    // TODO: include isResting property
+    private final boolean isResting;
 
     public Server(int id) {
-        this(id, false, -1, getNewSetOfWaitingCustomers(1), 0);
+        this(id, false, -1, getNewSetOfWaitingCustomers(1), 0, 1, false);
     }
 
     public Server(int id, int qmax) { // free
-        this(id, false, -1, getNewSetOfWaitingCustomers(qmax), 0);
+        this(id, false, -1, getNewSetOfWaitingCustomers(qmax), 0, qmax,false);
     }
 
-    public Server(int id, boolean isBusyServing, int serveCustomerId, double nextAvailableTime) { // busy without waiting - for Simulator 5
-        this(id, isBusyServing, serveCustomerId, ImList.<Customer>of(), nextAvailableTime);
-    }
+//    public Server(int id, boolean isBusyServing, int serveCustomerId, double nextAvailableTime) { // busy without waiting - for Simulator 5
+//        this(id, isBusyServing, serveCustomerId, ImList.<Customer>of(), nextAvailableTime, 1);
+//    }
 
     public Server(Server server, ImList<Customer> waitingCustomerUpdate) {
-        this(server.id, server.isBusyServing, server.serveCustomerId, waitingCustomerUpdate, server.nextAvailableTime);
+        this(server.id, server.isBusyServing, server.serveCustomerId, waitingCustomerUpdate, server.nextAvailableTime, 1, false);
     }
 
-    public Server(int id, boolean isBusyServing, int serveCustomerId, ImList<Customer> waitingCustomers, double nextAvailableTime) {
+    public Server(Server server, boolean isResting) {
+        this(server.id, server.isBusyServing, server.serveCustomerId, server.waitingCustomers, server.nextAvailableTime, server.qmax, isResting);
+    }
+
+    public Server(int id, boolean isBusyServing, int serveCustomerId, ImList<Customer> waitingCustomers,
+                  double nextAvailableTime, int qmax, boolean isResting) {
         this.id = id;
         this.isBusyServing = isBusyServing;
         this.serveCustomerId = serveCustomerId;
         this.waitingCustomers = waitingCustomers;
         this.isMaxWaiting = checkAllWaitingCustomers(waitingCustomers);
         this.nextAvailableTime = nextAvailableTime;
+        this.qmax = qmax;
+        this.isResting = isResting;
     }
 
     private static ImList<Customer> getNewSetOfWaitingCustomers(int qmax) {
@@ -83,20 +93,23 @@ public class Server {
         return this.nextAvailableTime;
     }
 
+    public int getQmax() { return this.qmax; }
+
+    public boolean getIsResting() { return this.isResting; }
+
     public boolean canServe(Customer customer) {
         return !this.getIsBusyServing() && this.nextAvailableTime <= customer.getArrivalTime();
     }
 
     public Server serveNewCustomer(Customer customer, double serviceTime) {
-        return new Server(this.id, true,
+        return new Server(customer.getServerId(), true,
                 customer.getCustomerId(), this.removeAnyWaitingCustomer(customer),
-                customer.getArrivalTime() + serviceTime);
+                customer.getArrivalTime() + serviceTime, this.qmax, this.isResting);
     }
 
     private ImList<Customer> removeAnyWaitingCustomer(Customer customer) {
         ImList<Customer> newListRemovingWaitingCustomer = ImList.<Customer>of();
-        int initialSize = this.getWaitingCustomers().size();
-        for (int i = 0; i < initialSize; i++) {
+        for (int i = 0; i < this.getWaitingCustomers().size(); i++) {
             Customer waitingCustomer = this.getWaitingCustomers().get(i);
             if (waitingCustomer.getCustomerId() != -1 &&
                     waitingCustomer.getCustomerId() != customer.getCustomerId()) {
@@ -104,24 +117,25 @@ public class Server {
             }
         }
 
-        System.out.println("\nremoving");
-        System.out.println(newListRemovingWaitingCustomer.size());
-
         if (newListRemovingWaitingCustomer.size() == 0) {
-            return getNewSetOfWaitingCustomers(initialSize);
-        } else if (newListRemovingWaitingCustomer.size() != this.getWaitingCustomers().size()) {
-            newListRemovingWaitingCustomer = newListRemovingWaitingCustomer.add(new Customer(-1, 0));
+            return getNewSetOfWaitingCustomers(this.qmax);
         }
-
-        System.out.println(newListRemovingWaitingCustomer);
 
         return newListRemovingWaitingCustomer;
     }
 
-    public Server waitNewCustomer(Customer customer) {
-        return new Server(this.id, true,
-                this.serveCustomerId, this.addedCustomerToWaitingList(customer),
-                this.nextAvailableTime);
+    public int getWaitingCapacity() {
+        int counter = 0;
+        for (int i = 0; i < this.waitingCustomers.size(); i++) {
+            if (this.waitingCustomers.get(i).getCustomerId() != -1) {
+                counter++;
+            }
+        }
+        return counter;
+    }
+
+    public Customer getNextWaitingCustomer() {
+        return this.waitingCustomers.get(0);
     }
 
     private ImList<Customer> addedCustomerToWaitingList(Customer customer) {

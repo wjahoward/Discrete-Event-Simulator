@@ -1,12 +1,10 @@
 package cs2030.simulator;
 
 import cs2030.simulator.Customer;
-import cs2030.simulator.Shop;
 
 import cs2030.util.Pair;
 
 import java.util.Comparator;
-import java.util.Optional;
 
 public class Event implements Comparator<Event>{
     private final Customer customer;

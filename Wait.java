@@ -33,7 +33,6 @@ public class Wait extends Event {
             if (currentServer.getIsMaxWaiting()) {
                 newShop = newShop.add(currentServer);
             } else {
-                System.out.println("\n" + currentServer.getWaitingCustomers());
                 for (int j = 0; j < currentServer.getWaitingCustomers().size(); j++) {
                     Customer currentWaitingCustomer = currentServer.getWaitingCustomers().get(j);
                     int currentWaitCustomerId = currentWaitingCustomer.getCustomerId();
@@ -45,8 +44,7 @@ public class Wait extends Event {
                         updatedCustomerList = updatedCustomerList.add(currentWaitingCustomer);
                     }
                 }
-                System.out.println(customer.getCustomerId());
-                System.out.println(updatedCustomerList);
+
                 currentServer = new Server(currentServer, updatedCustomerList);
                 updatedCustomerList = ImList.<Customer>of();
                 newShop = newShop.add(currentServer);

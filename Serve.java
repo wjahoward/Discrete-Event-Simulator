@@ -28,13 +28,27 @@ public class Serve extends Event {
 
         int onlyOneServeUpdated = 1;
 
-        for (int i = 0; i < currentShop.size(); i++) {
-            Server currentServer = currentShop.get(i);
-            if (!currentServer.getIsBusyServing() && onlyOneServeUpdated == 1) {
-                newShop = newShop.add(currentServer.serveNewCustomer(customer, serviceTime));
-                onlyOneServeUpdated--;
-            } else {
-                newShop = newShop.add(currentServer);
+        int serverID = customer.getServerId();
+
+        if (serverID != -1) {
+            Server currentServer = currentShop.get(serverID - 1);
+            currentServer = currentServer.serveNewCustomer(customer, serviceTime);
+            for (int i = 0; i < currentShop.size(); i++) {
+                if (i == serverID - 1) {
+                    newShop = newShop.add(currentServer);
+                } else {
+                    newShop = newShop.add(currentShop.get(i));
+                }
+            }
+        } else {
+            for (int i = 0; i < currentShop.size(); i++) {
+                Server currentServer = currentShop.get(i);
+                if (!currentServer.getIsBusyServing() && onlyOneServeUpdated == 1) {
+                    newShop = newShop.add(currentServer.serveNewCustomer(customer, serviceTime));
+                    onlyOneServeUpdated--;
+                } else {
+                    newShop = newShop.add(currentServer);
+                }
             }
         }
         return new Shop(newShop);

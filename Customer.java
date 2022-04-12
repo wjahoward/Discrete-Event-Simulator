@@ -15,6 +15,13 @@ public class Customer {
         this.serverId = -1;
     }
 
+    public Customer(int id, double arrivalTime, EventState changeState) { // server resting
+        this.id = id;
+        this.arrivalTime = arrivalTime;
+        this.currentCustomerState = changeState;
+        this.serverId = -1;
+    }
+
     public Customer(Customer customer, double arrivalTime, EventState changeState) {
         this.id = customer.id;
         this.arrivalTime = arrivalTime;

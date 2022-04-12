@@ -1,5 +1,5 @@
 package cs2030.simulator;
 
 public enum EventState {
-    ARRIVE, SERVE, DONE, WAIT, LEAVE, DEFAULT
+    ARRIVE, SERVE, DONE, WAIT, LEAVE, DEFAULT, SERVER_REST
 }

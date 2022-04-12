@@ -1,7 +1,5 @@
 package cs2030.util;
 
-import cs2030.simulator.EventComparator;
-
 import cs2030.util.Pair;
 
 import java.util.Comparator;

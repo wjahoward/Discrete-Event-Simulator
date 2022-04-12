@@ -7,7 +7,7 @@ import cs2030.simulator.EventState;
 import cs2030.simulator.EventStub;
 import cs2030.simulator.Server;
 import cs2030.simulator.Shop;
-import cs2030.simulator.Statistic;
+
 import cs2030.util.CustomerUtil;
 import cs2030.util.EventShopUtil;
 import cs2030.util.ImList;

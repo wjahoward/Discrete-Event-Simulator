@@ -24,7 +24,7 @@ public class EventShopUtil {
     }
 
     public static Pair<Optional<Event>, Shop> serveFunction(EventStub es, Customer customer, ImList<Server> currentServers, double serviceTime) {
-        Serve serve = new Serve(customer, es.getEventTime());
+        Serve serve = new Serve(customer, es.getEventTime() + serviceTime);
         return serve.execute(currentServers, customer, serviceTime);
     }
 
