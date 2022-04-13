@@ -13,7 +13,18 @@ public class CustomerUtil {
         ImList<Server> currentServers = shop.getImServers();
         for (int i = 0; i < currentServers.size(); i++) {
             Server currentServer = currentServers.get(i);
-            if (shop.checkAllImServersBusy()) {
+            // check if both servers are resting
+            // if yes, check if currentServer maxCustomersWaiting is max
+            // if yes (upon checking for both servers), this customer will leave
+            if (shop.checkServersResting()) {
+                if (!currentServer.getIsMaxWaiting()) {
+                    return new Customer(customer.getCustomerId(), customer.getArrivalTime(),
+                            EventState.WAIT, currentServers.get(i).getServerId());
+                } else if (i + 1 == currentServers.size() ){
+                    return new Customer(customer.getCustomerId(), customer.getArrivalTime(),
+                            EventState.LEAVE, customer.getServerId());
+                }
+            } else if (shop.checkAllImServersBusy()) {
                 // either wait or leave
                 if (!shop.checkAllImServersWaiting()) {
                     if (!currentServer.getIsMaxWaiting()) {
@@ -29,8 +40,7 @@ public class CustomerUtil {
                             EventState.LEAVE, customer.getServerId());
                 }
             } else {
-                // TODO: check if is resting
-                if (currentServer.canServe(customer)) {
+                if (currentServer.canServe(customer) && !currentServer.getIsResting()) {
                     // returning serve state
                     return new Customer(customer.getCustomerId(), customer.getArrivalTime(),
                             EventState.SERVE, currentServers.get(i).getServerId());
@@ -42,13 +52,13 @@ public class CustomerUtil {
     }
     public static Customer subsequentDoneFunction(Customer customer) {
         Customer newCustomer = new Customer(customer.getCustomerId(), customer.getArrivalTime(),
-                EventState.DONE, customer.getServerId());
+                EventState.DONE, customer.getOriginalArrivalTime(), customer.getServerId());
         return newCustomer;
     }
 
     public static Customer subsequentDefaultFunction(Customer customer) {
         Customer newCustomer = new Customer(customer.getCustomerId(), customer.getArrivalTime(),
-                EventState.DEFAULT, customer.getServerId());
+                EventState.DEFAULT, customer.getOriginalArrivalTime(), customer.getServerId());
         return newCustomer;
     }
 

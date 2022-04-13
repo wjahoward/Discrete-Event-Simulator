@@ -17,12 +17,14 @@ public class Serve extends Event {
         super(customer, eventTime);
     }
 
-    public Pair<Optional<Event>, Shop> execute(ImList<Server> servers, Customer customer, double serviceTime) {
+    public Pair<Optional<Event>, Shop> execute(ImList<Server> servers, Customer customer,
+                                               double serviceTime) {
         return Pair.of(Optional.<Event>of(new Serve(super.getCustomer()
                 , super.getCustomer().getArrivalTime())), updateShop(servers, customer, serviceTime));
     }
 
-    private Shop updateShop(ImList<Server> servers, Customer customer, double serviceTime) {
+    private Shop updateShop(ImList<Server> servers, Customer customer,
+                            double serviceTime) {
         ImList<Server> currentShop = servers;
         ImList<Server> newShop = ImList.<Server>of();
 
@@ -51,6 +53,7 @@ public class Serve extends Event {
                 }
             }
         }
+
         return new Shop(newShop);
     }
 

@@ -53,6 +53,28 @@ public class Shop {
         return true;
     }
 
+    public boolean checkAtLeastOneServerResting() {
+        for (int i = 0; i < this.imServers.size(); i++) {
+            Server currentServer = this.imServers.get(i);
+            if (currentServer.getIsResting()) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public boolean checkServersResting() {
+        for (int i = 0; i < this.imServers.size(); i++) {
+            Server currentServer = this.imServers.get(i);
+            if (!currentServer.getIsResting()) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
     @Override
     public String toString() {
         return this.imServers.toString();

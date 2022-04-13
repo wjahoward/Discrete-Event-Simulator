@@ -1,6 +1,7 @@
 package cs2030.simulator;
 
 import cs2030.simulator.Customer;
+import cs2030.simulator.EventStub;
 
 import cs2030.util.Pair;
 
@@ -14,7 +15,6 @@ public class Server {
     private final boolean isMaxWaiting;
     private final double nextAvailableTime;
     private final int qmax;
-    // TODO: include isResting property
     private final boolean isResting;
 
     public Server(int id) {
@@ -25,16 +25,12 @@ public class Server {
         this(id, false, -1, getNewSetOfWaitingCustomers(qmax), 0, qmax,false);
     }
 
-//    public Server(int id, boolean isBusyServing, int serveCustomerId, double nextAvailableTime) { // busy without waiting - for Simulator 5
-//        this(id, isBusyServing, serveCustomerId, ImList.<Customer>of(), nextAvailableTime, 1);
-//    }
-
     public Server(Server server, ImList<Customer> waitingCustomerUpdate) {
-        this(server.id, server.isBusyServing, server.serveCustomerId, waitingCustomerUpdate, server.nextAvailableTime, 1, false);
+        this(server.id, server.isBusyServing, server.serveCustomerId, waitingCustomerUpdate, server.nextAvailableTime, 1, server.isResting);
     }
 
-    public Server(Server server, boolean isResting) {
-        this(server.id, server.isBusyServing, server.serveCustomerId, server.waitingCustomers, server.nextAvailableTime, server.qmax, isResting);
+    public Server(Server server, double nextAvailableTime, boolean isResting) {
+        this(server.id, server.isBusyServing, server.serveCustomerId, server.waitingCustomers, nextAvailableTime, server.qmax, isResting);
     }
 
     public Server(int id, boolean isBusyServing, int serveCustomerId, ImList<Customer> waitingCustomers,
@@ -97,6 +93,10 @@ public class Server {
 
     public boolean getIsResting() { return this.isResting; }
 
+    public Customer getNextWaitingCustomer() {
+        return this.waitingCustomers.get(0);
+    }
+
     public boolean canServe(Customer customer) {
         return !this.getIsBusyServing() && this.nextAvailableTime <= customer.getArrivalTime();
     }
@@ -132,26 +132,6 @@ public class Server {
             }
         }
         return counter;
-    }
-
-    public Customer getNextWaitingCustomer() {
-        return this.waitingCustomers.get(0);
-    }
-
-    private ImList<Customer> addedCustomerToWaitingList(Customer customer) {
-        ImList<Customer> newCustomerWaitingList = ImList.<Customer>of();
-        int updateOnce = 1;
-        for (int i = 0; i < this.waitingCustomers.size(); i++) {
-            Customer currentWaitingCustomer = this.waitingCustomers.get(i);
-            if (currentWaitingCustomer.getCustomerId() == -1 && updateOnce == 1) {
-                newCustomerWaitingList = newCustomerWaitingList.add(customer);
-                updateOnce--;
-            } else {
-                newCustomerWaitingList = newCustomerWaitingList.add(currentWaitingCustomer);
-            }
-        }
-
-        return newCustomerWaitingList;
     }
 
     @Override

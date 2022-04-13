@@ -32,17 +32,17 @@ public class Done extends Event {
         ImList<Server> newShop = ImList.<Server>of();
 
         final boolean isBusy = false;
-        int onlyOneServeUpdated = 1;
         int serverIdServeCustomer = customer.getServerId();
 
         for (int i = 0; i < currentShop.size(); i++) {
             Server currentServer = currentShop.get(i);
             if (currentServer.getIsBusyServing() && currentServer.getServerId() == serverIdServeCustomer) {
+                double nextAvailableTime = currentServer.getWaitingCustomers().size() == 0 ? 0 : currentServer.getNextAvailableTime();
                 newShop = newShop.add(new Server(currentServer.getServerId(), isBusy, -1,
-                            currentServer.getWaitingCustomers(), 0, currentServer.getQmax(),
+                            currentServer.getWaitingCustomers(), nextAvailableTime, currentServer.getQmax(),
                             currentServer.getIsResting()));
             } else {
-                newShop = newShop.add(currentShop.get(i));
+                newShop = newShop.add(currentServer);
             }
         }
 

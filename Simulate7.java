@@ -18,18 +18,21 @@ import cs2030.util.PQ;
 import java.util.function.Supplier;
 import java.util.List;
 import java.util.Optional;
+import java.util.function.Supplier;
 
-public class Simulate6 {
+public class Simulate7 {
     private final ImList<Server> servers;
     private final PQ<EventStub> eventStubPQ;
     private final List<Pair<Double, Supplier<Double>>> list;
     private final int qmax;
+    private final Supplier<Double> restTime;
 
-    public Simulate6(int numOfServers, List<Pair<Double, Supplier<Double>>> list, int qmax) {
+    public Simulate7(int numOfServers, List<Pair<Double, Supplier<Double>>> list, int qmax, Supplier<Double> restTime) {
         this.servers = getServers(numOfServers, qmax);
         this.eventStubPQ = getEventStubPQ(list);
         this.list = list;
         this.qmax = qmax;
+        this.restTime = restTime;
     }
 
     private static ImList<Server> getServers(int numOfServers, int qmax) {
@@ -55,6 +58,7 @@ public class Simulate6 {
         ImList<Server> currentServers = this.servers;
         Statistic statistic = new Statistic();
         String output = "";
+        double currentRestTime = 0.0;
         // counter
         int j = 0;
 
@@ -89,32 +93,61 @@ public class Simulate6 {
                 statistic = statistic.addNumOfCustomersServed();
                 j++;
             } else if (eventTypeCustomerLoop == EventState.DONE) {
-                double defaultArrivalTime = customerLoop.getArrivalTime();
                 Pair<Optional<Event>, Shop> doneEvent = EventShopUtil.doneFunction(es, customerLoop, currentServers);
                 Optional<Event> doneFirst = doneEvent.first();
-                output += doneFirst.orElse(new Event(customerLoop,
-                        customerLoop.getArrivalTime())) + "\n";
-
+                Event done = doneFirst.orElse(new Event(customerLoop,
+                        customerLoop.getArrivalTime()));
+                output += done + "\n";
+                int serverNumberResting = 0;
                 int customerLoopServedId = customerLoop.getServerId();
+                Shop shopSecond = doneEvent.second();
+                // update currentServers to those new servers that are not busy
+                currentServers = shopSecond.getImServers();
+
                 for (int i = 0; i < currentServers.size(); i++) {
-                    Server server = currentServers.get(i);
+                    Server server = currentServers.get(i);;
                     if (server.getServerId() == customerLoopServedId) {
-                        if (server.getWaitingCapacity() != 0) {
-                            Customer updatedCustomer = new Customer(server.getNextWaitingCustomer(),
-                                    server.getNextAvailableTime(), EventState.SERVE);
-                            EventStub test = new EventStub(updatedCustomer, server.getNextAvailableTime());
-                            currentEventStub = currentEventStub.add(test);
-                            statistic = statistic.addWaitingTime(server.getNextAvailableTime() -
-                                    server.getNextWaitingCustomer().getArrivalTime());
+                        currentRestTime = this.restTime.get();
+                        if (currentRestTime != 0.0) {
+                            Customer noCustomerServed = new Customer(-1, -1, EventState.SERVER_REST);
+                            EventStub serverRestEvent = new EventStub(noCustomerServed, -1);
+                            if (server.getNextAvailableTime() == 0.0) {
+                                serverRestEvent = new EventStub(noCustomerServed, done.getEventTime() + currentRestTime);
+                            } else {
+                                serverRestEvent = new EventStub(noCustomerServed, server.getNextAvailableTime() + currentRestTime);
+                            }
+                            currentEventStub = currentEventStub.add(serverRestEvent);
+                            serverNumberResting = server.getServerId();
+
+                            // update server that is resting
+                            if (serverNumberResting != 0) {
+                                ImList<Server> newServers = ImList.<Server>of();
+                                for (int a = 0; a < currentServers.size(); a++) {
+                                    if (currentServers.get(a).getServerId() == serverNumberResting) {
+                                        Server newServer = new Server(currentServers.get(a), serverRestEvent.getEventTime(), true);
+                                        newServers = newServers.add(newServer);
+                                    } else {
+                                        newServers = newServers.add(currentServers.get(a));
+                                    }
+                                }
+
+                                    currentServers = newServers;
+                                }
+                            } else {
+                                if (server.getWaitingCapacity() != 0) {
+                                    Customer updatedCustomer = new Customer(server.getNextWaitingCustomer(),
+                                        server.getNextAvailableTime(), EventState.SERVE);
+                                    EventStub serverDone = new EventStub(updatedCustomer, server.getNextAvailableTime());
+                                    currentEventStub = currentEventStub.add(serverDone);
+                                    statistic = statistic.addWaitingTime(updatedCustomer.getArrivalTime() -
+                                        updatedCustomer.getOriginalArrivalTime());
+                            }
                         }
                     }
                 }
 
-                Shop shopSecond = doneEvent.second();
                 // change to default event
                 customerLoop = CustomerUtil.subsequentDefaultFunction(customerLoop);
-                // update currentServers to those new servers that are not busy
-                currentServers = shopSecond.getImServers();
             } else if (eventTypeCustomerLoop == EventState.LEAVE) {
                 Pair<Optional<Event>, Shop> leaveEvent = EventShopUtil.leaveFunction(es, customerLoop, currentServers);
                 Optional<Event> leaveFirst = leaveEvent.first();
@@ -123,7 +156,6 @@ public class Simulate6 {
                 customerLoop = CustomerUtil.subsequentDefaultFunction(customerLoop);
                 statistic = statistic.addNumOfCustomersLeftWithoutServed();
             } else if (eventTypeCustomerLoop == EventState.WAIT) {
-                double defaultArrivalTime = customerLoop.getArrivalTime();
                 Pair<Optional<Event>, Shop> waitEvent = EventShopUtil.waitFunction(es, customerLoop, currentServers);
                 Optional<Event> waitFirst = waitEvent.first();
                 Event newEventStub = waitFirst.orElse(new Event(customerLoop,
@@ -133,30 +165,41 @@ public class Simulate6 {
                 // update currentServers to those new servers that have customers waiting
                 currentServers = shopSecond.getImServers();
                 customerLoop = CustomerUtil.subsequentDefaultFunction(customerLoop);
+            } else if (eventTypeCustomerLoop == EventState.SERVER_REST) {
+                // TODO:
+                //  1. set isResting false
+                //  2. check if there's any waiting server
+                //  3. go back to served
+                ImList<Server> newServers = ImList.<Server>of();
+                for (int i = 0; i < currentServers.size(); i++) {
+                    Server currentServer = currentServers.get(i);
+                    if (currentServer.getIsResting() && currentServer.getNextAvailableTime() == es.getEventTime()) {
+                        currentServer = new Server(currentServer, 0.0, false);
+                        newServers = newServers.add(currentServer);
+                        if (currentServer.getWaitingCapacity() != 0) { // last customer
+                            Customer updatedCustomer = new Customer(currentServer.getNextWaitingCustomer(),
+                                    es.getEventTime(), EventState.SERVE);
+                            EventStub serverDone = new EventStub(updatedCustomer, currentServer.getNextAvailableTime());
+                            customerLoop = updatedCustomer;
+                            currentEventStub = currentEventStub.add(serverDone);
+                            statistic = statistic.addWaitingTime(updatedCustomer.getArrivalTime() -
+                                    updatedCustomer.getOriginalArrivalTime());
+                        }
+                    } else {
+                        newServers = newServers.add(currentServer);
+                    }
+                }
+                currentServers = newServers;
             }
 
             currentEventStub = currentEventStub.poll().second();
 
-            if (customerLoop.getCurrentCustomerState() != EventState.DEFAULT) {
+            if (customerLoop.getCurrentCustomerState() != EventState.DEFAULT &&
+                customerLoop.getCurrentCustomerState() != EventState.SERVER_REST) {
                 currentEventStub = currentEventStub.add(new EventStub(customerLoop, es.getEventTime()));
             }
         }
         return output + statistic.toString();
-    }
-
-    private Pair<Double, Integer> getNextAvailableTimeServerServedId(ImList<Server> servers, int customerId) {
-        for (int i = 0; i < servers.size(); i++) {
-            Server currentServer = servers.get(i);
-            for (int j = 0; j < currentServer.getWaitingCustomers().size(); j++) {
-                int currentWaitCustomerId = currentServer.getWaitingCustomers().get(j).getCustomerId();
-                if (currentWaitCustomerId == customerId) {
-                    return Pair.of(currentServer.getNextAvailableTime(),
-                            currentServer.getServerId());
-                }
-            }
-        }
-
-        return Pair.of(-1.0, -1);
     }
 
     @Override
