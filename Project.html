@@ -1,0 +1,2322 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0057)https://codecrunch.comp.nus.edu.sg/task_view.php?tid=5229 -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="expires" content="-1">
+<title>CodeCrunch</title>
+<!-- START NUS Includes-->
+<script type="text/javascript" src="./CodeCrunch_files/nussearch.js"></script>
+<link rel="stylesheet" type="text/css" href="./CodeCrunch_files/nusbase.css" media="screen, print, projection, handheld">
+<link rel="stylesheet" type="text/css" href="./CodeCrunch_files/nusmenu.css" media="screen, print, projection, handheld">
+<link rel="stylesheet" type="text/css" href="./CodeCrunch_files/nusscreen.css" media="screen, projection, print">
+<link href="https://codecrunch.comp.nus.edu.sg/nus/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon">
+<link rel="apple-touch-icon" href="https://codecrunch.comp.nus.edu.sg/nus/blank.png">
+<!-- END NUS Includes -->
+<script type="text/javascript" src="./CodeCrunch_files/ajax.js"></script>
+<script type="text/javascript" src="./CodeCrunch_files/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="./CodeCrunch_files/jquery.tablesorter.min.js"></script>
+<script type="text/javascript" src="./CodeCrunch_files/jquery.tablesorter.pager.js"></script>
+<!--<script type="text/javascript" src="/js/folding.js"></script>-->
+<script type="text/javascript" src="./CodeCrunch_files/jquery.watermark.min.js"></script>
+<script type="text/javascript">
+            function enterPressButton(field, button) {
+                $(field).keypress(function(e){if(e.which==13)$(button).trigger("click");});
+            }
+</script>
+<link rel="stylesheet" href="./CodeCrunch_files/style.css" type="text/css">
+<link rel="stylesheet" href="./CodeCrunch_files/jquery.tablesorter.css" type="text/css">
+<script type="text/javascript" src="./CodeCrunch_files/jquery-1.3.2.min.js"></script>
+<!--<script type="text/javascript" src="js/folding.js"></script>-->
+<script type="text/javascript" src="./CodeCrunch_files/jquery.rating.js"></script>
+<script type="text/javascript" src="./CodeCrunch_files/behaviour.js"></script>
+<script type="text/javascript" src="./CodeCrunch_files/textarea_maxlen.js"></script>
+<script type="text/javascript" src="./CodeCrunch_files/jquery.timer.js"></script>
+
+<script type="text/javascript" src="./CodeCrunch_files/plupload.full.min.js"></script>
+
+<link rel="stylesheet" href="./CodeCrunch_files/jquery.rating.css" type="text/css">
+<link rel="stylesheet" href="./CodeCrunch_files/style.css" type="text/css">
+<link rel="stylesheet" href="./CodeCrunch_files/tagcloud.css" type="text/css">
+<link rel="stylesheet" href="./CodeCrunch_files/jquery-ui-1.7.2.custom.css" type="text/css">
+
+<link rel="stylesheet" href="./CodeCrunch_files/jquery.ui.plupload.css" type="text/css">
+
+<style>@font-face {
+	font-family: "wticons";
+	src: url("data:font/woff2;charset=utf-8;base64,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") format("woff2");
+}
+
+.wticons {
+	line-height: 1;
+}
+
+.wticons:before {
+	font-family: wticons !important;
+	font-style: normal;
+	font-weight: normal !important;
+	vertical-align: top;
+}
+
+.wticon-account:before {
+	content: "\f101";
+}
+.wticon-add:before {
+	content: "\f102";
+}
+.wticon-cardResizeDrag:before {
+	content: "\f103";
+}
+.wticon-casual:before {
+	content: "\f104";
+}
+.wticon-check:before {
+	content: "\f105";
+}
+.wticon-checkSmall:before {
+	content: "\f106";
+}
+.wticon-chevron:before {
+	content: "\f107";
+}
+.wticon-copy:before {
+	content: "\f108";
+}
+.wticon-copySmall:before {
+	content: "\f109";
+}
+.wticon-dismiss:before {
+	content: "\f10a";
+}
+.wticon-downChevron:before {
+	content: "\f10b";
+}
+.wticon-error:before {
+	content: "\f10c";
+}
+.wticon-expand:before {
+	content: "\f10d";
+}
+.wticon-feedback:before {
+	content: "\f10e";
+}
+.wticon-filledDownArrow:before {
+	content: "\f10f";
+}
+.wticon-find:before {
+	content: "\f110";
+}
+.wticon-formal:before {
+	content: "\f111";
+}
+.wticon-gift:before {
+	content: "\f112";
+}
+.wticon-grayLogo:before {
+	content: "\f113";
+}
+.wticon-ignore:before {
+	content: "\f114";
+}
+.wticon-info:before {
+	content: "\f115";
+}
+.wticon-leftChevron:before {
+	content: "\f116";
+}
+.wticon-logo:before {
+	content: "\f117";
+}
+.wticon-love:before {
+	content: "\f118";
+}
+.wticon-noRecommendations:before {
+	content: "\f119";
+}
+.wticon-paste:before {
+	content: "\f11a";
+}
+.wticon-pin:before {
+	content: "\f11b";
+}
+.wticon-premium:before {
+	content: "\f11c";
+}
+.wticon-premiumDetail:before {
+	content: "\f11d";
+}
+.wticon-premiumFull:before {
+	content: "\f11e";
+}
+.wticon-recommendationLight:before {
+	content: "\f11f";
+}
+.wticon-recommendationLightCard:before {
+	content: "\f120";
+}
+.wticon-recommendationLightNoSuggestions:before {
+	content: "\f121";
+}
+.wticon-refine:before {
+	content: "\f122";
+}
+.wticon-rewrite:before {
+	content: "\f123";
+}
+.wticon-rightChevron:before {
+	content: "\f124";
+}
+.wticon-rocket:before {
+	content: "\f125";
+}
+.wticon-sentenceExamples:before {
+	content: "\f126";
+}
+.wticon-settings:before {
+	content: "\f127";
+}
+.wticon-shorten:before {
+	content: "\f128";
+}
+.wticon-tutorial:before {
+	content: "\f129";
+}
+.wticon-unlock:before {
+	content: "\f12a";
+}
+.wticon-warn:before {
+	content: "\f12b";
+}
+.wticon-WordtuneButton:before {
+	content: "\f12c";
+}
+.wticon-x:before {
+	content: "\f12d";
+}
+
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9zcmMvc2hhcmVkL0ljb25zLmZvbnQuanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7Q0FDQyxzQkFBc0I7Q0FDdEIsaXhTQUFpeFM7QUFDbHhTOztBQUVBO0NBQ0MsY0FBYztBQUNmOztBQUVBO0NBQ0MsK0JBQStCO0NBQy9CLGtCQUFrQjtDQUNsQiw4QkFBOEI7Q0FDOUIsbUJBQW1CO0FBQ3BCOztBQUVBO0NBQ0MsZ0JBQWdCO0FBQ2pCO0FBQ0E7Q0FDQyxnQkFBZ0I7QUFDakI7QUFDQTtDQUNDLGdCQUFnQjtBQUNqQjtBQUNBO0NBQ0MsZ0JBQWdCO0FBQ2pCO0FBQ0E7Q0FDQyxnQkFBZ0I7QUFDakI7QUFDQTtDQUNDLGdCQUFnQjtBQUNqQjtBQUNBO0NBQ0MsZ0JBQWdCO0FBQ2pCO0FBQ0E7Q0FDQyxnQkFBZ0I7QUFDakI7QUFDQTtDQUNDLGdCQUFnQjtBQUNqQjtBQUNBO0NBQ0MsZ0JBQWdCO0FBQ2pCO0FBQ0E7Q0FDQyxnQkFBZ0I7QUFDakI7QUFDQTtDQUNDLGdCQUFnQjtBQUNqQjtBQUNBO0NBQ0MsZ0JBQWdCO0FBQ2pCO0FBQ0E7Q0FDQyxnQkFBZ0I7QUFDakI7QUFDQTtDQUNDLGdCQUFnQjtBQUNqQjtBQUNBO0NBQ0MsZ0JBQWdCO0FBQ2pCO0FBQ0E7Q0FDQyxnQkFBZ0I7QUFDakI7QUFDQTtDQUNDLGdCQUFnQjtBQUNqQjtBQUNBO0NBQ0MsZ0JBQWdCO0FBQ2pCO0FBQ0E7Q0FDQyxnQkFBZ0I7QUFDakI7QUFDQTtDQUNDLGdCQUFnQjtBQUNqQjtBQUNBO0NBQ0MsZ0JBQWdCO0FBQ2pCO0FBQ0E7Q0FDQyxnQkFBZ0I7QUFDakI7QUFDQTtDQUNDLGdCQUFnQjtBQUNqQjtBQUNBO0NBQ0MsZ0JBQWdCO0FBQ2pCO0FBQ0E7Q0FDQyxnQkFBZ0I7QUFDakI7QUFDQTtDQUNDLGdCQUFnQjtBQUNqQjtBQUNBO0NBQ0MsZ0JBQWdCO0FBQ2pCO0FBQ0E7Q0FDQyxnQkFBZ0I7QUFDakI7QUFDQTtDQUNDLGdCQUFnQjtBQUNqQjtBQUNBO0NBQ0MsZ0JBQWdCO0FBQ2pCO0FBQ0E7Q0FDQyxnQkFBZ0I7QUFDakI7QUFDQTtDQUNDLGdCQUFnQjtBQUNqQjtBQUNBO0NBQ0MsZ0JBQWdCO0FBQ2pCO0FBQ0E7Q0FDQyxnQkFBZ0I7QUFDakI7QUFDQTtDQUNDLGdCQUFnQjtBQUNqQjtBQUNBO0NBQ0MsZ0JBQWdCO0FBQ2pCO0FBQ0E7Q0FDQyxnQkFBZ0I7QUFDakI7QUFDQTtDQUNDLGdCQUFnQjtBQUNqQjtBQUNBO0NBQ0MsZ0JBQWdCO0FBQ2pCO0FBQ0E7Q0FDQyxnQkFBZ0I7QUFDakI7QUFDQTtDQUNDLGdCQUFnQjtBQUNqQjtBQUNBO0NBQ0MsZ0JBQWdCO0FBQ2pCO0FBQ0E7Q0FDQyxnQkFBZ0I7QUFDakI7QUFDQTtDQUNDLGdCQUFnQjtBQUNqQiIsInNvdXJjZXNDb250ZW50IjpbIkBmb250LWZhY2Uge1xuXHRmb250LWZhbWlseTogXCJ3dGljb25zXCI7XG5cdHNyYzogdXJsKFwiZGF0YTpmb250L3dvZmYyO2NoYXJzZXQ9dXRmLTg7YmFzZTY0LGQwOUdNZ0FCQUFBQUFCdWNBQXNBQUFBQVFFZ0FBQnRKQUFFQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFISWgwQmxZQWpBSUsyVGpIZUFFMkFpUURnbXdMZ1RnQUJDQUZoQW9IaGxZYkNUWkZJYkJ4QUtBd25RMWsvMThTdERGQzVOZWgxUklpcldqaWRuWkZjOWlHL2p4WDI3YVoyYVVwM09DZ1VMR0lRcVZSZnRLNHdZWUYvcGdVeWdSMDdNTWQ3TzBzTi8zY1cyNG9KY0hEV3IvWkx5Nm9uOWplWXE2UlRNc21JUklpb1Q0SWdKMWRlU0xqcEFmbmZhY21OVVVwTGhwQ0hhQkh3SUlCd0NmNXdMcjdrKzcrSEtkQWIwdmJRQWZNU1R3OHY4My9BeGRCUVpGVWJMREFDaFFCTVFoektHa1ZZbXl0R3k3Rlp0SGFpNys1dnhtYnRkYk5HUzk4SzVWVnV4ZTZjT0dpZ2YvNG8vMjVNOU8rVW9DRlVlRExqcXNGL0Rqak1JUTRyTDhnd09aR2puQVJ2WitxN3lvNXY1Wk53eUk1eXBpdGxESmpPREF4M1BHT2t4VW5BbktnTDVYQTZlcmhQeXhqMGFCWkRCUUUvLzgxZTIwbWk2QktkSXRYUkZVRHNURlZMeSt6OE9abEZuaG1saWliUXVaajRBT3pLZ0FFbG1oK0NjRDFWSkVpT0o1dHYrOVhkU1JyVEkwaGExdFhXZUdxVHJlMHQ5Q2tMc29vSGg1anJnNUkvN2M0MjBwS3VBaHh0dVlka1VDSE1adVlIY2ZMUWM4alZib01USkJaaXllWUQ1azg4Z1U1b00zTUo4Y2tKL1JuY1ZPV3NLYWpmOHdJclpIRUk1NWxqcnBzd2w2NHZWZjZMdjhiT0ZXU1NMTzFaVEJaYkJLSnc2RUpHem82NTU0M1Bpb1h0T0VhWDhTZFZGMW10OVFlVlRrWGJieHVVbmwzQngyU2M3VlBOdy9EbTZOaHJZUEc1WGxZVllGRnBjNk5nMkpjUlNzbGk3Sk9zcUJuUWphbnNreGVZTk9Rc3l6Q2tJU2dhOFBUSWFrU3g0YnRtQzAvOENneit1L0FOb01ySytETk4xQVZoZmdZUHBSOFNyTmxrT2JJRDNtOHJvVjM2cGVQY3Q1d2t4azhsSXR6L01ycy9kMnk3RjlCS2JyUVJWTjFpWlovalpTdy9LbnQ1VytMOFM0NjVCY2JUUjFob08wZFUzN0xzcjExYlA4N2ZLWmtieU5WcDFxcXJKbFFjVkdxdFRlNWdweGhDdmMzdEt1UnJzczBGcGFEMjU2d0RYWE9MaHRQUit4VFZ0dE16NHpiUlRndjZyWTBmRm1CS3lBV0kyUzFpeElyVkdxU3pQS2xFT05NeTlBN1dOZnZUaXU0S0VpVEhaM29xTDY2c3E0OG55cGpWSmtYdXcvbDU2WHA5WGxKTmZOcmN4MXp5YkpBY2I2SFpJcWU5c2dxYk02NHowbyt0blpHc2ZNS1M2T3h0QVVLREZ5MnQwaFNjMkNCYkVGdU9tZUp6S3N0ZGtjOGxPM2crNlFxemwxUC90SHJCaDhHOFQxYis1WnJERDdTTExJN2RQaXcwaFR2VkNCYkNXb1Y5c0RWOWk1MGNtbzZMWUt3dURpa3VTTnZkTjBkMjJ1Zkk0NDU0YnlrNGIyTENuUTMyUlBnVS9ER0ovL3hDM0Jvb0RSaTNZeGpkNFFxOEplSXFIMFc0RUxqM0Q2cGVXaUdSbGkzdnlwbzJNS3NTZFloVFduQXZTd3VqMzJIaEVsazU0N1Q5VWxuM2ZmTWg2ai8vMUg3RTA3czlMcUhYc1J3akpZekVWZWtRcG1QTlhkN09lV0M0L1k0NTR6VHpxbzU2THljYjNsT2QyRjdEWXZNQWZzYzRqUzhxVFprYU5QTE1idTgyeTJSYkoxbGhVYm40ZU1YRkJJV0VST1hrSlNTa1pXVFYxQlNWbEZUMTlEVTF0SFROekEwTWpZeE5UTzNzTFJHMG9JVjR0UUZpU2haQ2JDRk9tb0hnYzkwNUpIYjhzNytSRlFNL092ZkZ4OXF2S25XZWVickdPdDlONERCdTBEalArREhtbHQwNEJSU3VJQTZIRWNHZTdCYlByZE1BYzdnRUp6R0VUaUxFMUREU2ZrZ213S2N4M1hJd1EwNGladVFoMXRRZ2R1UTRnNmN3RjNZaTN1d0gvY2h3ME00Z0Vld0Q0L2hFSjVBQ1o1Q0FaN0JFYnlBS2w1Q0hhK2dESytoQ0cvZ01ON0NNYnlEWGZBZWp1TEROcnNKUVJMWVJRQ05DTkNFQU0wSXBCV2hJbTBJRFdsSDZFZ253b04wSWJ4SUQ4S0g5Q0w4U0I4aWdQUWpnc2dnSW9RTUljTElNQ0tDakNDaXlDZ2lob3dqNHNnRUlvRk1JcExJRkNLRlRDUFN5Q3dpZzh3aHNzZzhJb2NzSXZMSUVxS0FMQ09LeUFwRUNWbUZLQ09yRVJWa0xhS0tyRVBVa1BXSU9ySUIwVUEySXBySUprUUwyWXhvSTFzUUhXUXJvb3RzUS9TUTdZZytzZ014c0hVWGpZdGVGNThCWDRHZWt3TURGNnNnK1JuWXpqTWRFcEZNSXdReFRLZUtURVJjUVlwSUF5MUk0WklsRUhRYUx5SXVMbE14NnNnS2E5SnhBMlUzc1MwMWtkQnNMMU15QWpFWWdheHhXQ1VxcmFsSG9GelRTbWFKWVpmZ2phakZvaG9VR2tJZVpDTm5mRk1WcXJyYTc5Z2FsYlJHRTd5RlptcFpSYXVNVVVWaTZ3WlZsZGJGY3R2ZklHck1xRVRVRGlicDVaVlZFempxRWh4RWdoeXJuQ3E2R1FIbEtFckFLcklqZ1lGS0RHNUNFMjNpYXlab0pna3FSbFFPU1ZPeFJsVzdNZXhJVW1DeXF5Z21xNlFnV1NoTC8xL2JrNXY3YU9hOWQ5TlB6WDVnWHl0QmtmUjZVNkFVWDVjVWdmYm1RWEg3dTdyMlVqdnlaY3YxVzRKdUJLREJnQkgwQ081MzZjc043Smp2eTc0RC9HcGpTY3EvTEM1VS9RMDJiZndML3UwY1pBSWV6U0Y1UlBkYUFON0hCV0NwL3lOdTJCb0VNSEdiRU1TWk1YTE9ZWFNtWHZvUU5od3ZjTHNjWTV2cHNhM2JOQjh2UEdWVE1vWUhkVFJnYWlna0xoMEl5eFM2dUlnMWRRbUd4UEQyY0Voendtc3FoVFM2NW9RZjFrSmg1ZnhXa3R1QVpBdW4yOWo1MlN6OFVLV01VbEVTLzdjNmt4eW9rRkVxcWRLUm8zejZ2M3pGNHJWU0wyNWdqYlVONyt2djM1THpEM3ZweGpVbFI0K2xybll1SHVxeFNaMmFkcWRRbVBiR1FocnhaQ05XcTBSeGJKU3ZJaUhScmRETjd3U1dPcGpLaTV6TXVGbk0zTXk5bk1pckxGbTl2Rk9VTyt3MUQ2QnFISXlEWW5WbkU4MnFjU2x4U2FndXFRakpCVWx5UGFxY0V0M1lZRmljR3RZbWF4VGpHREtJQ0VkQWlRYStEbUpkcjBwb0pHKytzSlVqZWZVRkFERmdDbHBob0IzOVd0TzUzMS9McUl4OVcyWUkySDFsZWo1L1BkYmVaZUorc3ROMlMwVDN6VFl6OTYzRXFPK0l1TkhzaXJzejhGYjYvWVBKa1E5cFcreldvMUdvNDl5bWxPZlplaVlSR0UzeEZCU05wbzlnV29YTGtPeUNPMU5WZ2VreDViOEwrTFVEQTIwSFFxRUNBbnQ2UzZMdzJ4cHRqM2NIZzR0eTlYM1Q5THhEcU94SUZINTZlMTZrUlIrd1N6SWowalF5eWpSOXN5OW02cG5aSXp6ZFMvZjE1VllDdE1YYTR1M0RlUnhXYkpnajlXSWU5cGNaRCt2clRkOXE3NzdlbVZiRXBneDkwbWlOQWdvcGY1WFJhaVNoYzZ3NC9lTXNzMnRRVnpENDRLUjJLMFhsWGo2cm1RdVNETFVkaGZHa1pTSzZOcmQvbkJjeWZwc0hESFpaZi9zcm9YWWcvVU9rLyt1ZWRnMlAvVUpjeE52UlRqc1o3OWoxNkhBeDdYYWdiazNwZHlmZktNamJVOGNFVGVqbGxEdGR2RkZBK3BEMEhBQjRIWU9Ubkx3NmhNc1J6TER1SUI1cFFDUWdWc3lIWTRpNDlVbE8zT2o5T25YbGRoNUFEMlU2b0JRTXpDcTNDbmF3SGlSbGZQR0dhTjJ5V0huazRUbUFsbkRQSWNuSXBHdWt6U00vdWgrclcyZkNuZGV3dWpKT01WQkliaStWU2oraEh5UmwxN2VFclNTY2hZaUxCdVk2M3RNRGhTbld5c0s3eW5BSU8yUGZBMDcxOEY0dm4rUDk0dVdnRDhmWTRTUDhWQ01md2ZZZ3ZxdTBHU3lTVGt0aUdzemFTSlpQd3RHZWI1LzJFdGtMYlhQd3kwUkNsZTV4K1FObyt5ZGtGMlMzR05idjNxVngxMjlEb1VkeXd2YWNtUHRFUkJCZzFGOWp1ajlqZGFzSXRKNEQ4Mm1SMmJ4NTY2K3h3eE5udWNZRXkraGlGaUhCRFlwRGJqN1N2KzFHK2k5dkF3ZVlUWStOUFZoWFh1dTRBM3BhanZJVFZsMVNUL2QzOWx3UXBvbzF0Z2VSSzNiVENyOVFYK2dBN1NITTk4QlM3aVVOU2hWemNKN3lENGFqWkt5Qy80M3NSQUN6Qm1hQ1lXQzJWcU14UUF2M0ZzSTAxVE9nOW1aaHkrMFNiUHN6czdWSVVvQVBFQXlOV1NsSGVnUmp6cGxHVjBCN2Mvck5uOGJTMzcwU0ZPUGZRK3B4KytvaFp0WEFvZXZhYjE1bmNXeWZCTWxsc09FMmRLRDZMYmw5dlAweHJsUG5EWm90MktwTVlhdzZkOWtwL1c3b3U5NGxna3FYVDkxS1U3d0ZYakVscWF6aG16NVB6OEZqK1N0am1kK0hhdVVwbmJSRVc2UEdrYXphVjhaWmRHdUgzQ3pHcWh0Q3RPODRXZjV5QTRpdzdpWEVZNmpEd1FCOWc4eXJXaFNobTlrWnZvWHNoaWdSMjF0dDlDU01yejVVV0p0RWhaOUsrcXU2a3dMZmI1dzc4R3gvK052eHBBK2tXeXRBS2hPaTFORTdaamRwN3ZERVZ6KzJIakI4K01CNXd2eTB2bDJiS2YzV0x1bVloczM2NUZqclkyeUlvalA3eFhhQjc5aFJjdVF3UFNWblA1aWZHUi84QnN0MlBCNzNmTkoxK0dWMWtaenE2N2Nhb2NHSEV3cHJJazlYck1wSmg4TkJ4ajZablJuUlB1NzZvckZKRkVjV3RrTzV0YVk0ZC9WYWU2M25pMzZEY1hNWmI1Zk1vKy9BZWpkQ2swbWRlRWhhc013STRub0l5VWFUM1J1N3l2eVNHMmdUY2ViN0ZrOWhSYWI1MFR5VnFxYVRHOERxOUJqRWt0dDViN2NTWVE3aUU4bmMzS2laREpIcGFYczJHMDhUTFc2MG1VemdjN0lqWjFETVovV1BtMGNuc2NIdHJEUTY3YTNpMWp0Qi9tc2hkNStxNStLWmZPSWM5a1o0MHV6TG5mR0ZoU1ByK3JjMnpQTlhMajk3OTRha09wSWNtY1NLbmhyZC8rbDRGS3RUTjZEbytlVHNweUFuRC9LalYyQkVHTjlCR0tUOFBJSm5WVTFvZVJOZ2hyOGU0TDEzQUd0a1FWdDZTSFFkNTY3VnV5RUdxUUNqMDVid3NWTklrd1FyUGpieWcwdWhYek1RQ3NVbWRhNWEvQS81L2JYdkp5VHhFWHQ1aVgwa3d5SStjN0dYeEdjNDFQOXk1T0liNFYvVWZRVmZ3bThzYnJkVCtNUzdoQ2Q4Q0hkcERnTWZFbHpDNDMzc0ZDVVBhWisxa1ZvVUgrWDlwRCtEVkUrdDZObTJUWVRtd083NW1ieDVhVUF3UzlRQjhIRkpGOFBuRjlhQlpqWVdES1duVXdHWTJnZVFzQ2t0OVUyWWlXT0J3MDRmN01kNTFNRG9kVkZSNjZKVGNyZE8yQTRPYm5ydzRNK0VxMEhQMFZCNStmRkFJNDFSNG9Ob1dZRHdMYW1VSGo5K2ZuWjJZYUVGckVuZHR1M04wTkNldmIrQVc5bThLcCtMelZkWHp6ckc3MlZtY2pLYjJjMVcrR3VsRVJROFpTSlJTR1pMdjVzc3B5T2FJd0M5aEpsSndWczFzMXN5azlpeEp6cFpIOUhpOGZwbTNaTW5UNTlvSVBxcGh0UU82NTQrQlFNVnd6RmRYNWNiTERUVWpzcnBFY0g4NkVVMVkyVDVGTXVjZkNyVjBEOWcwT3ZSN3EyeUZ2ZUoyOXYrL3JjZU5vWUxZVG1rZTdqSzNPVkk2cERuQllPSERUaDBDRHppMmJCRnF2VTQ3ODBQSFRZSDRvSEc0MVJmTzUyZFlPdldGMzdtcWc0UWR2WlBvYkFCSzhDK0dKazhtN0wya0xybzFMS2JXT0pON000ZXBOZDBUVWNRQXoyOW13U2NSSlBXTFFhOHA2ckJvZk9Xa1ZhaTZOV2MvSkM4bkJBMTkwMCtKNWZGeW1Ybmw2M09XeHFTbThOV2N6VHhPdStOZzRPT3JvUkg3a0U1dDFJODR0eWpvOTNqUEFaRW5PTWVQYWM4OEhtUGJNN2Y0Q0pacmxSVUs1V3h5eFBYNUN2V0t5d2tSVlhPU0JTQmowSnU4REJxU0dyYzdhTlEyNEhRLzY4eDAwMEZrd0luK2dUOXpwa3NHR3N6NWp6T2RWYjFxZTRsdmMzODc0VXpkOXo1S0diZDAxZEg1VXJzS3R3b2JoWFdiS1VuYUwrYnJVUEF2dDRnK0p2ck9XYlFTZkcxb3RDbWFOQXkrQkp1T2E3a0ZHYXZvK3BMRWtNWG02eVZHaXYydnRyaUM4TmRVT1ViNHdqK0RiWTdsdGRJekpkOHkwNURvN0lFbC9IQWQzdlRhOFlRK1NxWmZRM3JQdlV6dEgwZkovcHlSajh3ZWZVSi9jU0dHTG45MVVGMGJDbC9XV29lWlNvVTVaM3VuQ0xHMGdnd2J3ckhPUUNYbDcwRGpuS0tROHRKMFpkSDR6cnFkMFp0bjM2TnMxNlVmNnhxYlB6M0JzLzNQZUNYUCt2VXFzT3F2aWJaa2hUUFJDdkl5QzdSSk40R1JXUzdDSkFTU2Q3WlIxMlR5RVpBektaSkxWVFRnc2xuMzB2LytHZGt4YW9TZWZQU0VoTzBrYkZ5a1JuSm5NQzFURmxkaWJUeW4renNqdjI0cmdBbTF4MG5uSG5jMm5qdlhZVmpmYjVjd1N4YXhMWUpvQkF0bU9lYmFIR1NiY1g3dW85R1N2dXpkNjA4ZVhmVHNoTTdOdXgrU1ZoRTI0dytBQ05rbmhXUVJPUTRYUWwvUldUa0NuNEpUc1Nucm9nczRlTkN0MUNYUVZVNHlQYUtBSmhUM1NvYU90Uktvb3lvYnUyb1NJQW53bFZoOGNRcmNtRzZNSGl0eGJPRnFvV25oYXkxcjdVcEtDTFI3MG5xbTV6NUZQREVBSWNycmxOOXVxOGw3OUYwcmttRHUvOG5xMzJnMmFWaGlyVmhyc0Zad1gwM3EyLzJaUVVGMDNrcnhOQkI2b3huaUpjKzlJWTMyK3ZHL2ZjWnFmR2FlSEdHdUUzVE5saldXU1k4M1JEZ0lsVVdnZXc1elhPZkxRVTAxNGE1d0hMcVF2Um1kUWYxWDVsUE5KMmE2QzE1ZnVkMGxqeVBIckl0ckxyRm5Ub1lKQkRleWZkaVJhaFo3UHlxaFdsMTBEb1ZjMUlmaHRQNE9DOUphUDlOQitqakh1b3h0VTVNRlg4UlVhOVJXYzRIdWw0Zkg4OENOYXpnNnBxd21yZ2FYZzF3NEI5WDVubE54dDZxOEVQdVRzMGR2RjF3eWxtWFZUWktzbDhONEdYdjJrMzNTN0NScHZ4QTZXL04xd2tpSHp6d1JzWTdPZUh5RW5Wd01qNEduVWdVbkJ1SmI2Z3FGeXlaZW1SdUVpOXNYRFZ3OHJjYWo1a1RzTmMwU3J1THpGb1hzVGlhRzA2QklXd3owVW9Jc01uOFJNbnBzMWU3ZWhDcllmQ2M5bVNaTnhuWjgreEY2Wm1icHB6MjY1Ym1HcU1obEN3V1E4TEN1SzR4cW5VTEtQaGhYU3Y3ZzlraW1LUzJCWC9rOGViYXV6TmF4MUtWWExBZVFTN2IydCtTUUE0OFZ1OFFIYmExZUd2Yi8vMXpEeVh1eWhtWVdKYStiL3NHN1FRaHhxSEtwQkdPeTZpSklFWVNveXVXaFMvbThSYUhMNE9MdUhFeGIxazRCRjRjOHE0QXlRNFNlM0Y1NU0zNjlUU2xIK0ZYbDgrOHQxMVgvNDV6RC8rOWZQbmZoeDBIK2x2dHZPZTlyWkZRL3lpRW5GNFM0Q3VUK3daUWIrMnR1a1VMa1BuNnlnSzhPRWpLMkt0WFgvUXpYM2FvQVFhU2cyenhlZXh0MXlwK2NnVHpLeitJVmUzaEZlQWp0bVR3UWRlYng5Sy8vUjk4blo1aDJMREIxSFQrMzk5YjYxNEQxc1FTa3VNM2NZRDRteVBKMGNBM3VOblo4L1FPd1E3NlVQdm1HY0Zwdkk0UVRORGgrNE5uVnIzd1JLU0RubWMvWjdrUDdYK0EzSWVrWEtyTTluY0xyMFd6dHBGMklSdzZ0NjhQQ0hHcFNFZlpGY0pSQ096RytEQzhFVFVCU1UwbklCR0VaVElKelZXcWJBOXV2N3VrM2J3ZDZKOEE4enFGdGRqSnA5M0hTVndDdC9ucm5EdzJPNjhNeE5McXFjb0ZYTE4vQ1J0SXlTdTNKOUpsak16bEdVRnB6TUMwb015SFNaSWNNbDJXWjhvWWlmUy8vcE9TNTF6VllyVXJrRGtKWGZSeFR0NWMwVDNMUVZZSlZjU1A5RDJ1eU5zcFRoODdFK2RrRllwL3EzRHhZNlo1OE9JTzBoS3NuVGd6c1RNY0p4c3g3U0F2THMyRDZhZHdlWXNQdFhLS200bHdmSmoyYnhxK2xyQzduMlVBeDY4ODFSZEpacE1pTGxXZkNJSEMxZnVPNktKQTg1SDk2b1FnRUxRZVJkZEFXb2l3S3orR1p1RmJoUElvaGxaQVZ1WExNZ2l1M3dLVGpHd1ZjQ1JrVmhBZGdFZFE0NHpzNC9iajMvcnhxZUpJUEVsNGJ5OEQ1Z3MzRnNBQUJDZEd3Q0RZQlE2QXdQZ1djR2JZTWNyaTJQMmVYM2dHM3J5bi9kbEh0T1dvMDloNUJTK2hLdXp5bEh4NXZFNjNrYUFqYUpFaGo5dkZueVZDQnA5TzV6T0VrbWd2d2ZvZk9WSHNOcmptL0ZqdkpZaVdvQ002bjA4WE1vRC9IbldwdVBUUklqZG1jakxJaTJ5cFJDMlJJSzBsdm50SHVHdXJLMDZKRTZlUitMWGVjc2VJQ0VlNWR4aXZXQ3pFcVhHdG94eWhlTGlHZVR2S0l5TGsyZTZrMURaQ3huUW82NnJqMVhXVk9URHhJN2VWcGo2aEZXNmYrQ0FtVjVzYjgvWUJ6WS9OeXNrTktSWHh2YzMyb3owQVIyY045Ykt2ZEp3eDNmTm1pMHE4NGdFKzlWRXdEQldJL25kTWtRbU9LNCtnbVFjUXBrWld3N29lNE05b095WmttL011TXZWWS9RcnVodjBXaWxHRzBDSUl1d3JheEVhTFVaNkw3eHZ0aWd3YTNXOExEQ2Y3UXNkUjZPNjNtK1U4NDBmNHRJZXVPRlNnOGV5b0tnc3NMQnlqOHB4eWpsZlBBNUM1M0dYM1lmd2dqTzh2b2xQQ283YmR3M1hqUFNpdTFWL29VZjU4ZngwT3Z5WTdST2JMVVFiRVVHUWFUWkpOdEwrQzR5c0p6bHdOSitBUDNyRTBlTkdYamNWL2ZSSW9raUZ3bzBRUzVQS3BIQXRUZ2RxUlQzRVhNU0toQkVBODJSS3E1bkRVb2NMNEZmZkk2ZGhTRTVsdDZxSjYyYmwvTHFiRWNsVTJHZmJxRGFGY2RUNG5PWWw1VGtDYlFsTTdQcDVJc2Myd3V3YzRhalVIK0U1L3dKSEVvWHpQb0ZodERBYnlUWGY1L0FxYmkrcEFOYUtha2E5L3M5dnBMbFFFSmlaV0crVEpSeDZKeXJjdkwyWU1zbmwvT2xEOWpUVTNzNHVOQ1RtdWRMUktYRnR1bWg1b2xyNjhhSVhWZE5zWEV4Skx3QkZqUE11K0pQWUc1U2tyS2Y3M3g3Qmk4ZGNPdUFub2RJRlVKTEtsVTJkSmc4TVFqNFlHb2RPR0owT1BuUTk3RHBEbUwwNDJNSXh0a2NlaEgrbmNyUTBab3lrTWVrSFNtYlc3WWVqQzBOQThhY0RDM09KSTZrV0pwMTZQY2V0MHQvbkp2aWcySW1wNzJpQjVaclFEdWVOWkxBT0s4OXh2MkVyZHRnenRIc29mek44bTRsc0FkaWRZcHp0elRqcXo0c0tEbU5SUi9pTmErbXVMZVFzVXVUTzVUdzRaaFhhQUE3OWhaVFlyTXlnb2s1VTlJMkp5eUp6eXpPZnJiRjBoazh0a0I3L0p2NTBzNzllWmprUUl1ZDhaalRId0F6Y29wSjJwK3Q4eDJaTG9VQWtGampUTE5vbkhRa1Q2blNRWU5jVk1DV3NicVZJY2ltNWFGb3RCSkpHeEd6MXBhV1BISytwTzJ0eXppb0JxbFZ3b1JPdTJ0WjN4enoxNHlwZFNhejFPY2NlazhsSFhMSXp1dWdDTndmRGNnQVFYck5HWFFOSmdad1lERUgzUW5JMmxsVUdta0lxR1h6cVcrdURyQ09ZS01XRVRtNGV3K2ZBcXNNdUtXQzMvem5PMGtVc2hhbzM5RG8rRzFKOW1hdUllZEd0NThSaW9Cc2xHc3FabFZXMWs2QXpVKzNub0diYUJ0aHYrQ2VRNUZSYXpoWDZIamFJRzJ0cE1aaERxTlB3RVJDZlBhbEVQSFlXTm5Rb2RPdlIrYURhTnRaR2RnUjVVaHpIMFY5RWI2NE16bVRUYWtOWVB0YURVWEdoSlRYNEpkSGM1dnd0cXFocjdFL0tGekFiYVpMZlA2VDVENWt4S3ByMkZmdFBBWU9pdVhaWTU5Nk14QnBvRlFLa216NGUxQVpVL3JzMVg4d0J1MUNJQTVMelM3VXJEei85L25mK2Vqdmt3UzFnN2VTMWRvK2NiREdCdmlCWllNdEI1Qmt6U0NRV0ZiWkMrbkJ1dU1NbDdtS1ZkT2JkbG9aMHpHSEI2Tm5ZcUJJMFpBRElQQVlnTGhwK2lvNGxuUU5NOEFPR29ZUkVLNGdzdXlQZklYdVQvOGRFNE1mNzd3ZklWQUJ4Z2V3RVdIQVlBUlZvQitJZXlPdmlqZWNvRVVOd3liMmlKYzhFanNFSkVrQ0VETU1BV3NnQUY2RkFFSHNDNzV4SWdnaFFBQVJqQ0JNQUFGaXdaQ2ZDSWRRSVVvUk1RRVkxZ0JDekFFVUFDTEJnRU5GQ0NpUnVEQWE0dys3NWV2Q2JNOStDNm9OaE04MXQ2QnM2ZXNHcWI3ZENUY1FJSXJBUk10ZGhVZWUxMlJHeGxtV0oxVENnUUFsV0o2UlcwTkV1UnREdWZXOWFucnRFVUJ6MkNSME1nbVhzQVIwZEF3ZXd4TE9tZkFaaU1xWEhoS3EzR2RyeHd3cEZuaHdvQk1NcUNqZWVaV2VQWUlWU3hWSTR2UTBRcXgyS1Vrd1hNNkljbnR1TVZRR090c1JSd0pIYk42WlFzTDI4S2x1UFE1WFNNc1ZwZEg0U1J5V3l4MnV5T3Q1bCtUd1BMcXFpcW11cVJhQ3llU0tiU21Xd3VYeWlXeXBWcXJkNW90dHFkYnE4L0dJN0drK2xzdmxpdTFwdXRZVnEyNDhhVTVVVloxVTNiOWNNNHpjdTY3Y2Q1M2MvNy9XWnBwVG8xZFNoYndSMnIyN0c2ekJmZDJkeEQ5dTl3eU1vVnV1ZE9oUm54cmR1cGZrQ3ZQaERkUTFRaGxMTlQxa3k0aGIzcWRxSXJiYlpjMjlyc2oxUFh1aTFONXFoQjgwZFRQUjRrN21ZS2c0a0wrSk5DTS9PTjFPM01CcGlGMHF1dk5rTUFjd2hzTDFHQWZtSVRUV0dMTXh0ZzR0Sks0VnJ4alhkRGJTN0pVZUZ2SklhSmZ5MTlER0dsaUx4SldFT3h0WHkzTDlRYXZpUGRnNllZQVkwU1Q1aW5xV2VCMHJOcW9zV1VXS1lCMFhmeGN6RDRJWWp5NGVQUzZZKzdFRDRicTlmdFQ4N3NJbDE2dDVTL1lYWlF3ZFB5bjBVd3Rlclg1NW9lT3VjZ2wxSXBPS29nRkpRY1BYdUJUeXdtcXVpMzROSXJrRzhaVUdSWXc5R2JpaWxBbnVVUThlaHltUi9pNk1BeitZVFlxMUIwYitCL2QwejZ6dmpscGRoSWg3RGZpUkIrVzN3TzFlM3dqYUtSRGhJR3V3Y3k3OTBoSjFoYWVSQ3RKUnU5QTliQ25rdkhyaDE1c2Q4R0FBQUFcIikgZm9ybWF0KFwid29mZjJcIik7XG59XG5cbi53dGljb25zIHtcblx0bGluZS1oZWlnaHQ6IDE7XG59XG5cbi53dGljb25zOmJlZm9yZSB7XG5cdGZvbnQtZmFtaWx5OiB3dGljb25zICFpbXBvcnRhbnQ7XG5cdGZvbnQtc3R5bGU6IG5vcm1hbDtcblx0Zm9udC13ZWlnaHQ6IG5vcm1hbCAhaW1wb3J0YW50O1xuXHR2ZXJ0aWNhbC1hbGlnbjogdG9wO1xufVxuXG4ud3RpY29uLWFjY291bnQ6YmVmb3JlIHtcblx0Y29udGVudDogXCJcXGYxMDFcIjtcbn1cbi53dGljb24tYWRkOmJlZm9yZSB7XG5cdGNvbnRlbnQ6IFwiXFxmMTAyXCI7XG59XG4ud3RpY29uLWNhcmRSZXNpemVEcmFnOmJlZm9yZSB7XG5cdGNvbnRlbnQ6IFwiXFxmMTAzXCI7XG59XG4ud3RpY29uLWNhc3VhbDpiZWZvcmUge1xuXHRjb250ZW50OiBcIlxcZjEwNFwiO1xufVxuLnd0aWNvbi1jaGVjazpiZWZvcmUge1xuXHRjb250ZW50OiBcIlxcZjEwNVwiO1xufVxuLnd0aWNvbi1jaGVja1NtYWxsOmJlZm9yZSB7XG5cdGNvbnRlbnQ6IFwiXFxmMTA2XCI7XG59XG4ud3RpY29uLWNoZXZyb246YmVmb3JlIHtcblx0Y29udGVudDogXCJcXGYxMDdcIjtcbn1cbi53dGljb24tY29weTpiZWZvcmUge1xuXHRjb250ZW50OiBcIlxcZjEwOFwiO1xufVxuLnd0aWNvbi1jb3B5U21hbGw6YmVmb3JlIHtcblx0Y29udGVudDogXCJcXGYxMDlcIjtcbn1cbi53dGljb24tZGlzbWlzczpiZWZvcmUge1xuXHRjb250ZW50OiBcIlxcZjEwYVwiO1xufVxuLnd0aWNvbi1kb3duQ2hldnJvbjpiZWZvcmUge1xuXHRjb250ZW50OiBcIlxcZjEwYlwiO1xufVxuLnd0aWNvbi1lcnJvcjpiZWZvcmUge1xuXHRjb250ZW50OiBcIlxcZjEwY1wiO1xufVxuLnd0aWNvbi1leHBhbmQ6YmVmb3JlIHtcblx0Y29udGVudDogXCJcXGYxMGRcIjtcbn1cbi53dGljb24tZmVlZGJhY2s6YmVmb3JlIHtcblx0Y29udGVudDogXCJcXGYxMGVcIjtcbn1cbi53dGljb24tZmlsbGVkRG93bkFycm93OmJlZm9yZSB7XG5cdGNvbnRlbnQ6IFwiXFxmMTBmXCI7XG59XG4ud3RpY29uLWZpbmQ6YmVmb3JlIHtcblx0Y29udGVudDogXCJcXGYxMTBcIjtcbn1cbi53dGljb24tZm9ybWFsOmJlZm9yZSB7XG5cdGNvbnRlbnQ6IFwiXFxmMTExXCI7XG59XG4ud3RpY29uLWdpZnQ6YmVmb3JlIHtcblx0Y29udGVudDogXCJcXGYxMTJcIjtcbn1cbi53dGljb24tZ3JheUxvZ286YmVmb3JlIHtcblx0Y29udGVudDogXCJcXGYxMTNcIjtcbn1cbi53dGljb24taWdub3JlOmJlZm9yZSB7XG5cdGNvbnRlbnQ6IFwiXFxmMTE0XCI7XG59XG4ud3RpY29uLWluZm86YmVmb3JlIHtcblx0Y29udGVudDogXCJcXGYxMTVcIjtcbn1cbi53dGljb24tbGVmdENoZXZyb246YmVmb3JlIHtcblx0Y29udGVudDogXCJcXGYxMTZcIjtcbn1cbi53dGljb24tbG9nbzpiZWZvcmUge1xuXHRjb250ZW50OiBcIlxcZjExN1wiO1xufVxuLnd0aWNvbi1sb3ZlOmJlZm9yZSB7XG5cdGNvbnRlbnQ6IFwiXFxmMTE4XCI7XG59XG4ud3RpY29uLW5vUmVjb21tZW5kYXRpb25zOmJlZm9yZSB7XG5cdGNvbnRlbnQ6IFwiXFxmMTE5XCI7XG59XG4ud3RpY29uLXBhc3RlOmJlZm9yZSB7XG5cdGNvbnRlbnQ6IFwiXFxmMTFhXCI7XG59XG4ud3RpY29uLXBpbjpiZWZvcmUge1xuXHRjb250ZW50OiBcIlxcZjExYlwiO1xufVxuLnd0aWNvbi1wcmVtaXVtOmJlZm9yZSB7XG5cdGNvbnRlbnQ6IFwiXFxmMTFjXCI7XG59XG4ud3RpY29uLXByZW1pdW1EZXRhaWw6YmVmb3JlIHtcblx0Y29udGVudDogXCJcXGYxMWRcIjtcbn1cbi53dGljb24tcHJlbWl1bUZ1bGw6YmVmb3JlIHtcblx0Y29udGVudDogXCJcXGYxMWVcIjtcbn1cbi53dGljb24tcmVjb21tZW5kYXRpb25MaWdodDpiZWZvcmUge1xuXHRjb250ZW50OiBcIlxcZjExZlwiO1xufVxuLnd0aWNvbi1yZWNvbW1lbmRhdGlvbkxpZ2h0Q2FyZDpiZWZvcmUge1xuXHRjb250ZW50OiBcIlxcZjEyMFwiO1xufVxuLnd0aWNvbi1yZWNvbW1lbmRhdGlvbkxpZ2h0Tm9TdWdnZXN0aW9uczpiZWZvcmUge1xuXHRjb250ZW50OiBcIlxcZjEyMVwiO1xufVxuLnd0aWNvbi1yZWZpbmU6YmVmb3JlIHtcblx0Y29udGVudDogXCJcXGYxMjJcIjtcbn1cbi53dGljb24tcmV3cml0ZTpiZWZvcmUge1xuXHRjb250ZW50OiBcIlxcZjEyM1wiO1xufVxuLnd0aWNvbi1yaWdodENoZXZyb246YmVmb3JlIHtcblx0Y29udGVudDogXCJcXGYxMjRcIjtcbn1cbi53dGljb24tcm9ja2V0OmJlZm9yZSB7XG5cdGNvbnRlbnQ6IFwiXFxmMTI1XCI7XG59XG4ud3RpY29uLXNlbnRlbmNlRXhhbXBsZXM6YmVmb3JlIHtcblx0Y29udGVudDogXCJcXGYxMjZcIjtcbn1cbi53dGljb24tc2V0dGluZ3M6YmVmb3JlIHtcblx0Y29udGVudDogXCJcXGYxMjdcIjtcbn1cbi53dGljb24tc2hvcnRlbjpiZWZvcmUge1xuXHRjb250ZW50OiBcIlxcZjEyOFwiO1xufVxuLnd0aWNvbi10dXRvcmlhbDpiZWZvcmUge1xuXHRjb250ZW50OiBcIlxcZjEyOVwiO1xufVxuLnd0aWNvbi11bmxvY2s6YmVmb3JlIHtcblx0Y29udGVudDogXCJcXGYxMmFcIjtcbn1cbi53dGljb24td2FybjpiZWZvcmUge1xuXHRjb250ZW50OiBcIlxcZjEyYlwiO1xufVxuLnd0aWNvbi1Xb3JkdHVuZUJ1dHRvbjpiZWZvcmUge1xuXHRjb250ZW50OiBcIlxcZjEyY1wiO1xufVxuLnd0aWNvbi14OmJlZm9yZSB7XG5cdGNvbnRlbnQ6IFwiXFxmMTJkXCI7XG59XG4iXSwic291cmNlUm9vdCI6IiJ9 */</style></head>
+
+<body data-new-gr-c-s-check-loaded="14.1060.0" data-gr-ext-installed="">
+<!-- START NUS-Header -->
+
+<!-- NUS Header -->
+<div id="nusheader" class="nusbody">
+<div class="nuslogodiv">
+<a href="https://www.nus.edu.sg/">
+<img class="nuslogo" src="./CodeCrunch_files/soclogo.png" alt="">
+</a>
+</div>
+<div id="nuspointermenu">
+<ul>
+<li><a href="https://exchange.nus.edu.sg/"><span style="text-transform:none">NUS WebMail</span></a></li>
+<li><a href="https://ivle.nus.edu.sg/lms/default.aspx">ivle</a></li>
+<li><a href="https://www.lib.nus.edu.sg/">library</a></li>
+<li><a href="https://www.nus.edu.sg/campusmap/">maps</a></li>
+<!--<li><a href="https://aces01.nus.edu.sg/CoE/jsp/coeMain.jsp">calendar</a></li>-->
+<!--<li><a href="/sitemap">sitemap</a></li>-->
+<!--<li><a href="#">a-z index</a></li>-->
+<!--<li><a href="/contact">contact</a></li>-->
+<li><a href="https://codecrunch.comp.nus.edu.sg/task_view.php?tid=5229#" id="rightcorner">&nbsp;</a></li>
+</ul>
+<br style="clear: left">
+</div>
+<div id="searchform">
+<script src="./CodeCrunch_files/nussearch.js" type="text/javascript"></script>
+<form id="frmSearch" onsubmit="evalSearch();return false" action="https://codecrunch.comp.nus.edu.sg/task_view.php?tid=5229"><div>
+<a href="https://www.nus.edu.sg/search/" style="text-decoration:none; font-size:11px; font-weight:bold; color:#666666">Search </a>
+<input id="txtKeyword" type="text" value="search for..." onfocus="value=&#39;&#39;" class="equal" size="18">
+in
+<select id="SearchMenu" name="SearchMenu">
+<option selected="selected" value="0">NUS Websites</option>
+<option value="1">Internet</option>
+<option value="2">Staff Directory</option>
+<option value="3">Advanced Search</option>
+</select>
+<input class="equal" id="Go" src="./CodeCrunch_files/go.png" type="image">
+</div></form>
+</div>
+</div>
+
+<!-- NUS Local-Navigation --><!--
+<div id="nusmenu" class="nusbody"><div id="nusmenu_l"><div id="nusmenu_r">
+<ul>
+  <li><a href="http://www.comp.nus.edu.sg/index.html">Home</a></li>
+  <li><a href="http://www.comp.nus.edu.sg/about.html">About Us</a></li>
+  <li><a class="drop" href="javascript:;">Departments</a>
+    <ul>
+      <li><a href="http://www.comp.nus.edu.sg/cs" >Computer Science</a></li>
+      <li><a href="http://www.comp.nus.edu.sg/is/" >Information Systems</a></li>
+    </ul>
+  </li>
+  <li><a href="http://www.comp.nus.edu.sg/undergraduates" >Undergraduate</a></li>
+  <li><a href="http://www.comp.nus.edu.sg/graduates" >Graduate</a></li>
+  <li><a href="http://www.comp.nus.edu.sg/research" >Research</a></li>
+  <li><a href="http://www.comp.nus.edu.sg/entrepreneurship" >Entrepreneurship</a></li>
+  <li><a href="http://www.stmi.nus.edu.sg" >Executive Education</a></li>
+  <li><a href="http://www.comp.nus.edu.sg/external_relations" >External Relations</a></li>
+</ul>
+</div></div></div>
+-->
+
+<!-- NUS Inner-Title -->
+<div id="nustitle" class="nusbody"><div id="nustitle_l"><div id="nustitle_r">
+              <h1 id="site-name">
+                <a href="https://codecrunch.comp.nus.edu.sg/" title="Home" rel="home">CodeCrunch</a>
+              </h1>
+</div></div></div>
+
+<!-- END NUS-Header -->
+
+<div id="banner">
+        <div id="topmenu">
+        <div id="login">
+                Logged in as: <strong>e0726778</strong>
+                </div>
+                <div style="display: block;"><ul>
+                                        <li><a href="https://codecrunch.comp.nus.edu.sg/index.php">Home</a></li>
+                                                    <li><a href="https://codecrunch.comp.nus.edu.sg/user_course_viewall.php">My Courses</a></li>
+                                                                <li><a href="https://codecrunch.comp.nus.edu.sg/tutorial_browser.php">Browse Tutorials</a></li>
+                                                                <li><a href="https://codecrunch.comp.nus.edu.sg/task_browser.php">Browse Tasks</a></li>
+                                                                <li><a href="https://codecrunch.comp.nus.edu.sg/task_criteria.php">Search</a></li>
+                                                                <li><a href="https://codecrunch.comp.nus.edu.sg/user_viewsubmissions.php">My Submissions</a></li>
+                                                <li><a href="https://codecrunch.comp.nus.edu.sg/logout_process.php">Logout</a></li>
+                            </ul></div>
+        </div>
+</div>
+<div id="container">
+<div id="outer">
+<div id="inner">
+	<div id="content_full">                         
+		<div class="content-header"><h3>CS2030 Project: Discrete Event Simulator</h3></div>
+		<div class="spacer"></div>
+		<table width="100%" cellpadding="0" cellspacing="0" border="0">
+			<tbody><tr><td valign="top" style="width: 30%;">
+				<div class="meta_header">Tags &amp; Categories</div>
+				<div id="classifyList"><span class="value">Tags:
+</span>
+<span class="value">Categories:
+</span></div>
+			</td>
+			<td valign="top" style="width: 40%;">
+				<div class="meta_header">Related Tutorials</div>
+				<div id="tutorialList"></div>
+			</td>
+			<td valign="top" style="width: 30%;">
+			</td>
+			</tr>
+		</tbody></table>
+		<div class="content-header">
+			<h3>Task Content
+							</h3>
+		</div>                          
+		<div class="panel"><div class="task-content">
+		<h3>CS2030 Project — Discrete Event Simulator</h3>
+
+<p>A discrete event simulator is a software that simulates the changes in the state of a system across time, with each transition from one state of the system to another triggered via an event.
+Such a system can be used to study many complex real-world systems such as queuing to order food at a fast-food restaurant.</p>
+
+<p>An event occurs at a particular time, and each event alters the state of the system and may generate more events.  States remain unchanged between two events (hence the term <strong>discrete</strong>), and this allows the simulator to jump from the time of one event to another. 
+Some simulation statistics are also typically tracked to measure the performance of the system.</p>
+
+<p>The following illustrates a queuing system comprising a single service point <b>S</b> with one customer queue.</p>
+
+<div><img src="data:image/png;base64,%0A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" alt="Embedded Image"></div>
+
+<p>In this exercise, we consider a multi-server system comprising the following:</p>
+<ul>
+<li>There are a number of <strong>server</strong>s; each server can serve one customer at a time.</li>
+<li>Each customer has a <strong>service time</strong> (time taken to serve the customer). </li>
+<li>When a <strong>customer</strong> arrives (<tt><strong>ARRIVE</strong></tt> event):
+<ul>
+<li>if the server is idle (not serving any customer), then the server starts serving the customer immediately (<tt><strong>SERVE</strong></tt> event).</li>
+<li>if the server is serving another customer, then the customer that just arrived waits in the queue (<tt><strong>WAIT</strong></tt> event). </li>
+<li>if the server is serving one customer with a second customer waiting in the queue, and a third customer arrives, then this latter customer leaves (<tt><strong>LEAVE</strong></tt> event).
+In other words, there is at most one customer waiting in the queue.</li>
+<li>When the server is done serving a customer (<tt><strong>DONE</strong></tt> event), the server can start serving the customer waiting at the front of the queue (if any).</li>
+</ul>
+</li><li>If there is no waiting customer, then the server becomes idle again.</li>
+</ul>
+
+<p>Notice from the above description that there are five events in the system, namely: <tt><b>ARRIVE</b></tt>,  <tt><b>SERVE</b></tt>, <tt><b>WAIT</b></tt>, <tt><b>LEAVE</b></tt> and <tt><b>DONE</b></tt>. 
+For each customer, these are the only possible event transitions:</p>
+<ul>
+<li> <tt>ARRIVE</tt> → <tt>SERVE</tt> → <tt>DONE</tt> </li>
+<li> <tt>ARRIVE</tt> → <tt>WAIT</tt> → <tt>SERVE</tt> → <tt>DONE</tt> </li>
+<li> <tt>ARRIVE</tt> → <tt>LEAVE</tt> </li>
+</ul>
+
+<p>In essence, an event is tied to one customer.  
+Depending on the current state of the system, triggering an event will result in the next state of the system, and possibly the next event.
+Events are also processed via a queue.
+At the start of the simulation, the queue only contains the customer arrival events.
+With every simulation time step, an event is retrieved from the queue to be processed, and any resulting event added to the queue.
+This process is repeated until there are no events left in the queue.
+
+</p><p>As an example, given the arrival times (represented as a floating point value for simplicity) of three customers and one server, and assuming a constant service time of <tt>1.0</tt>,</p>
+
+<pre>0.500
+0.600
+0.700
+</pre>
+
+<p>The simulation starts with three arrival events</p>
+
+<pre>&lt;0.500 1 arrives&gt;
+&lt;0.600 2 arrives&gt;
+&lt;0.700 3 arrives&gt;
+</pre>
+
+<p>The next event to pick is <tt>&lt;0.500 1 arrives&gt;</tt>.  This schedules a <tt>SERVE</tt> event.
+
+</p><pre>&lt;0.500 1 serves by 1&gt;
+&lt;0.600 2 arrives&gt;
+&lt;0.700 3 arrives&gt;
+</pre>
+
+The next event to pick is <tt>&lt;0.500 1 served&gt;</tt>.  This schedules a <tt>DONE</tt> event.
+<pre>&lt;0.600 2 arrives&gt;
+&lt;0.700 3 arrives&gt;
+&lt;1.500 1 done serving by 1&gt;
+</pre>
+
+The next event to pick is <tt>&lt;0.600 2 arrives&gt;</tt>...
+
+<p>This process is repeated until there are no more events.</p>
+Using our example, the entire simulation run results in the following output, each of the form <tt>&lt;time_event_occurred, customer_id, event_details&gt;</tt><p></p>
+<pre>0.500 1 arrives
+0.500 1 serves by 1
+0.600 2 arrives
+0.600 2 waits at 1
+0.700 3 arrives
+0.700 3 leaves
+1.500 1 done serving by 1
+1.500 2 serves by 1
+2.500 2 done serving by 1
+</pre>
+
+<p>Finally, statistics of the system that we need to keep track of are:</p>
+<ol>
+<li>the average waiting time for customers who have been served;</li>
+<li>the number of customers served;</li>
+<li>the number of customers who left without being served.</li>
+</ol>
+
+<p>In our example, the end-of-simulation statistics are respectively, <tt>[0.450 2 1]</tt>.</p>
+
+
+<h4>Priority Queuing</h4>
+
+<p>The main structure that is used to manage the events in
+any discrete event simulation is
+the Priority Queue.
+Java provides the <tt>PriorityQueue</tt> (a mutable class) that can be used to keep a collection of elements, where each element is given a certain priority.
+
+</p>
+<ul>
+<li>Elements may be added to the queue with the <tt>add(E e)</tt> method.  Note that the queue is modified;</li>
+<li>The <tt>poll()</tt> method may be used to retrieve and remove the element with the highest priority from the queue. 
+It returns an object of type <tt>E</tt>, or <tt>null</tt> if the queue is empty. Note that the queue is modified.</li>
+</ul>
+<!--
+<p>To enable <tt>PriorityQueue</tt> to order events, instantiate a <tt>PriorityQueue</tt> object using the constructor that takes in a <em>Comparator</em> object. <em>For more details, refer to the Java API Specifications.</em> 
+-->
+<!--  If you design is right, you should only change the code in four places: (i) initialize list of events, (ii) schedule an event, (iii) get the next event, (iv) checking if there is still an event.  (Hint: You should be able to implement a Comparator without getter getTime()) -->
+
+<h4>Take Note</h4>
+
+<p>The requirements of this project will be released in stages.
+For each level <tt>N</tt>, you will be given a driver class
+<tt>MainN</tt> in the file <tt>MainN.java</tt>,
+<!-- As new levels are introduced, feel free to modify the driver classes of any previous levels so as to maintain the desired correctness in all levels. -->
+and you will be required to create the <tt>SimulateN</tt> class to go
+along with it.
+
+</p><p>All utility classes are to be packaged in <tt>cs2030.util</tt>, while 
+the rest of the classes related to the simulation are to be packaged
+in <tt>cs2030.simulator</tt>, with <tt>SimulateN</tt> as the only
+<tt>public</tt> facing classes.
+
+</p><p>The 
+<tt><a href="https://codecrunch.comp.nus.edu.sg/taskfile.php/5229/Pair.java">Pair</a></tt> and 
+<tt><a href="https://codecrunch.comp.nus.edu.sg/taskfile.php/5229/ImList.java">ImList</a></tt> classes are provided.
+
+</p><p>Compile your code using
+
+</p><pre>javac -d . *.java
+</pre>
+
+and run your program to ensure that everything is still in good
+working order before proceeding to the next level.
+
+<!--  
+The outside-package clients are in the form of <tt>MainN</tt> driver classes and will be provided to you.
+Define a <tt>main</tt> method in each driver class that reads input and passes the input to the <tt>Simulator::simulate(..)</tt> method.  This method should be overloaded due to the different level requirements.
+-->
+
+<h4>Level 0</h4>
+
+<p>Before delving into the implementation of the simulator, you will need to come up with your own generic immutable priority queue, <tt>PQ&lt;T&gt;</tt>.
+
+Specifically, you will need to construct the following:
+
+</p><ul>
+<li>A constructor that takes in a <tt>Comparator</tt> and creates an empty <tt>PQ&lt;T&gt;</tt>
+</li><li>A method <tt>add</tt> that takes in an element of type <tt>T</tt> and returns the resulting <tt>PQ</tt>
+</li><li>A method <tt>poll</tt> that takes no arguments and removes the highest priority element in the queue (as determined by the <tt>Comparator</tt>).
+Note that both the element and the resulting queue should be removed, i.e. the return type should be
+<tt>Pair&lt;T, PQ&lt;T&gt;&gt;</tt>
+</li><li>A method <tt>isEmpty()</tt> that returns <tt>true</tt> if the <tt>PQ</tt> is empty, or <tt>false</tt> otherwise
+</li><li>A <tt>toString</tt> method that returns a string representation of the <tt>PQ</tt>
+</li></ul>
+
+<p>As much as possible, you should adopt the <i>immutable delegation pattern</i> for your implementation.
+Also note that the <tt>Pair</tt> class has been provided for you.
+
+</p><pre>jshell&gt; import cs2030.util.*
+
+jshell&gt; Comparator&lt;String&gt; cmp = (x, y) -&gt; x.compareTo(y)
+cmp ==&gt; $Lambda$15/0x00000008000a9440@7dc7cbad
+
+jshell&gt; PQ&lt;String&gt; pq = new PQ&lt;String&gt;(cmp)
+pq ==&gt; []
+
+jshell&gt; pq.add("one").add("two").add("three")
+$.. ==&gt; [one, two, three]
+
+jshell&gt; pq
+pq ==&gt; []
+
+jshell&gt; pq.isEmpty()
+$.. ==&gt; true
+
+jshell&gt; pq = pq.add("one").add("two").add("three")
+pq ==&gt; [one, two, three]
+
+jshell&gt; pq.poll()
+$.. ==&gt; (one, [three, two])
+
+jshell&gt; pq
+pq ==&gt; [one, two, three]
+
+jshell&gt; pq.isEmpty()
+$.. ==&gt; false
+
+jshell&gt; pq.poll().first()
+$.. ==&gt; "one"
+
+jshell&gt; pq.poll().second().poll().first()
+$.. ==&gt; "three"
+
+jshell&gt; pq = pq.poll().second().poll().second().poll().second()
+pq ==&gt; []
+
+jshell&gt; pq.isEmpty()
+$.. ==&gt; true
+
+jshell&gt; Comparator&lt;Object&gt; c = (x, y) -&gt; x.hashCode() - y.hashCode()
+c ==&gt; $Lambda$22/0x00000008000b6040@464bee09
+
+jshell&gt; pq = new PQ&lt;String&gt;(c)
+pq ==&gt; []
+
+jshell&gt; pq.add("one").poll()
+$.. ==&gt; (one, [])
+</pre>
+
+<p>Note that the <tt>PQ</tt> class should be packaged in <tt>cs2030.util</tt>, together with the <tt>Pair</tt> class.
+
+</p><h4>Level 1</h4>
+
+<p>You will start by building a <i>walking skeleton</i>
+of the discrete event simulator.
+With this framework in place, you would be able to flesh out the
+details according to the requirement in subsequent levels.
+All the classes should reside in the package <tt>cs2030.simulator</tt>.
+
+</p><p>Write an <i>immutable</i> <tt>Customer</tt> class to represent each arriving customer that is tagged with a customer ID (of type <tt>int</tt>), as well as an arrival time (of type <tt>double</tt>). 
+<!-- You may write other accessor methods as you deem necessary.</p>
+-->
+
+</p><pre>jshell&gt; import cs2030.util.*
+
+jshell&gt; import cs2030.simulator.*
+
+jshell&gt; new Customer(1, 0.5)
+$.. ==&gt; 1
+
+jshell&gt; new Customer(2, 0.6)
+$.. ==&gt; 2
+
+jshell&gt; new Customer(3, 0.7)
+$.. ==&gt; 3
+</pre>
+
+<p>An event (i.e. 
+<tt>ARRIVE</tt>, <tt>SERVE</tt>, <tt>DONE</tt>, <tt>WAIT</tt>, or
+<tt>LEAVE</tt>) is associated with a customer and an event time.
+Events are placed in a priority queue so that they can be polled
+one after another according to the time of occurrence of the event. 
+Let us first create a dummy event <tt>EventStub</tt> to test that
+events are processed correctly using the priority queue,
+<tt>PQ&lt;Event&gt;</tt>.
+
+</p><p>In the <tt>EventStub</tt> class, include the constructor that takes in a customer and the event time.  Also include an appropriate <tt>toString</tt> method to return the event time as a string.
+
+</p><p>You will also need to define an appropriate <tt>EventComparator</tt>
+when creating the priority queue.
+
+</p><pre>jshell&gt; Event event = new EventStub(new Customer(1, 0.5), 3.7) // event time of 3.7
+event ==&gt; 3.700
+
+jshell&gt; Comparator&lt;Event&gt; cmp = new EventComparator()
+cmp ==&gt; EventComparator@28d25987
+
+jshell&gt; PQ&lt;Event&gt; pq = new PQ&lt;Event&gt;(cmp)
+pq ==&gt; []
+
+jshell&gt; pq = pq.add(new EventStub(new Customer(1, 0.5), 3.5))
+pq ==&gt; [3.500]
+
+jshell&gt; pq = pq.add(new EventStub(new Customer(2, 0.6), 2.6))
+pq ==&gt; [2.600, 3.500]
+
+jshell&gt; pq = pq.add(new EventStub(new Customer(3, 0.7), 1.7))
+pq ==&gt; [1.700, 3.500, 2.600]
+
+jshell&gt; pq.poll().first()
+$.. ==&gt; 1.700
+
+jshell&gt; pq.poll().second().poll().first()
+$.. ==&gt; 2.600
+
+jshell&gt; pq.poll().second().poll().second().poll().first()
+$.. ==&gt; 3.500
+
+jshell&gt; pq.poll().second().poll().second().poll().second().isEmpty()
+$.. ==&gt; true
+</pre>
+
+<h4>Level 2</h4>
+
+<p>Write an <i>immutable</i> <tt>Server</tt> class to represent a
+server that is tagged with a server ID (of type <tt>int</tt>).
+The servers provide their services within a shop.
+As such, write a <tt>Shop</tt> class that takes in a list of servers.
+
+</p><pre>jshell&gt; import cs2030.util.*
+
+jshell&gt; import cs2030.simulator.*
+
+jshell&gt; new Server(1)
+$.. ==&gt; 1
+
+jshell&gt; new Server(2)
+$.. ==&gt; 2
+
+jshell&gt; new Shop(List.&lt;Server&gt;of(new Server(1), new Server(2)))
+$.. ==&gt; [1, 2]
+</pre>
+
+<!--
+<p>The shop represents the state of the system.  
+Currently it is defined only by the status of the servers).
+-->
+
+<p>Now how do we link the customer(s) to the shop (or list of servers)?
+By using events!
+
+Every time an event is polled from the priority queue, the event
+(e.g. <tt>SERVE</tt> event)
+looks at the current state of the shop, and updates the state (e.g.
+an available server becomes busy) as well as to generate the next
+event (e.g. generating a <tt>DONE</tt> event to be added to the
+priority queue).
+
+</p><p>An <tt>Event</tt> interface is given below; you may modify it to suit your needs later.
+
+</p><pre>package cs2030.simulator;
+
+import java.util.Optional;
+import cs2030.util.Pair;
+
+interface Event {
+    Pair&lt;Optional&lt;Event&gt;, Shop&gt; execute(Shop shop);
+}
+</pre>
+
+The <tt>execute</tt> method takes the current status of the shop, makes
+changes to the state of the shop based on the event, and returns the next
+event (if any) and updated shop status as a pair of values.
+
+<p>Now, include the <tt>execute</tt> method in the <tt>EventStub</tt> that
+takes in a <tt>Shop</tt>, and returns no event (represented by an
+empty optional) and the same shop as a pair.
+
+</p><pre>jshell&gt; Shop shop = new Shop(List.&lt;Server&gt;of(new Server(1), new Server(2)))
+shop ==&gt; [1, 2]
+
+jshell&gt; new EventStub(new Customer(1, 0.5), 3.5)
+$.. ==&gt; 3.500
+
+jshell&gt; new EventStub(new Customer(1, 0.5), 3.5).execute(shop)
+$.. ==&gt; (Optional.empty, [1, 2])
+</pre>
+
+<p>Since events are associated with customers and the shop associated
+with the servers, a particular instance of the simulation can be completely
+defined by the priority queue of events, as well as the status of the
+shop.
+Write the class <tt>Simulate2</tt> with a constructor that takes in the
+number of servers, together with a <tt>List&lt;Double&gt;</tt> of customer
+arrival times, and constructs a priority queue of
+<tt>EventStub</tt> events using the arrival time as the event time, and the status of the shop.
+
+</p><p>Include a <tt>run</tt> method within the <tt>Simulator2</tt> class
+that takes no arguments, such that invoking the method will cause the
+simulation to start by having the events in the priority queue polled one after another until the queue is empty.
+The <tt>run</tt> method should return a string.
+
+
+</p><pre>jshell&gt; new Simulate2(1, List.&lt;Double&gt;of(0.5, 0.6, 0.7))
+$.. ==&gt; Queue: [0.500, 0.600, 0.700]; Shop: [1]
+
+jshell&gt; System.out.println(new Simulate2(1, List.&lt;Double&gt;of(0.5, 0.6, 0.7)).run())
+0.500
+0.600
+0.700
+-- End of Simulation --
+
+jshell&gt; new Simulate2(2, List.&lt;Double&gt;of(3.5, 2.6, 1.7))
+$.. ==&gt; Queue: [1.700, 3.500, 2.600]; Shop: [1, 2]
+
+jshell&gt; System.out.println(new Simulate2(1, List.&lt;Double&gt;of(3.5, 2.6, 1.7)).run())
+1.700
+2.600
+3.500
+-- End of Simulation --
+</pre>
+
+<p>Use the program 
+<tt><a href="https://codecrunch.comp.nus.edu.sg/taskfile.php/5229/Main2.java">Main2.java</a></tt> 
+provided to test your program as shown below.
+The first input value is the number of servers.
+This is followed by a sequence of input arrival times associated with each <tt>Customer</tt> having an identifier <tt>1</tt>, <tt>2</tt>, <tt>3</tt>, ... respectively.
+User input is <span style="text-decoration: underline;">underlined</span>.
+Input is terminated with a <tt>^D</tt> (CTRL-d).
+
+</p><p>Take note of the following assumptions:</p>
+<ul>
+<li>The format of the input is always correct; </li>
+<li>Output of a <tt>double</tt> value, say <tt>d</tt>, is to be formatted with <tt>String.format("%.3f", d)</tt>; <!--
+<li>Inconsistencies between sample output and actual output involving <tt>-0.000</tt> and <tt>0.000</tt> can be ignored. --> </li>
+</ul>
+
+<p>
+</p><table border="1">
+<tbody>
+<tr>
+<td><tt> 
+$ java Main2<br>
+<span style="text-decoration: underline;">1</span><br> 
+<span style="text-decoration: underline;">0.500</span><br> 
+<span style="text-decoration: underline;">0.600</span><br> 
+<span style="text-decoration: underline;">0.700</span><br>
+<span style="text-decoration: underline;">^D</span><br>
+0.500<br>
+0.600<br>
+0.700<br>
+-- End of Simulation --<br>
+</tt>
+</td></tr></tbody></table>
+
+<h4>Level 3</h4>
+
+<p>If you have designed the simulator correctly, this level would
+only require you to construct the rest of the 
+<tt>ARRIVE</tt>, <tt>SERVE</tt>, <tt>DONE</tt>, <tt>WAIT</tt> and
+<tt>LEAVE</tt> events
+in order to perform a proper simulation.
+For each event, you will need to define an appropriate <tt>execute</tt> 
+method that takes in the current state of the shop, and return the
+appropriate next event, as well as the updated shop as a pair of values.
+
+</p><p>Using an <tt>ARRIVE</tt> event at time <tt>t</tt> as an example, if the
+<tt>execute</tt> method takes in a shop with all servers free, then
+the shop will return a serve event (to be served by <tt>1</tt> at time
+<tt>t</tt>), and the shop (no updates are necessary since service has
+not started).
+On the other hand, if the event was a <tt>SERVE</tt> event at time
+<tt>t</tt> at <tt>i</tt>, then the <tt>execute</tt> method
+takes in the shop, and returns a <tt>DONE</tt> event at time <tt>t + 1.0</tt>
+(assuming service time of <tt>1.0</tt>) together with the updated shop with
+server <tt>i</tt> tagged as busy.
+
+</p><p>From this point on, you will not be guided with <tt>jshell</tt>
+tests.  
+Instead we will only provide sample runs using the provided
+<tt>Main</tt> programs.
+
+</p><p>Here's a tip: rather than creating all five events at the same time, you
+can still develop and test one event at a time.  For example, start
+with the arrival event, and within it's <tt>execute</tt> method, return the
+<tt>EventStub</tt> with a later event time.  
+At the same time, you can check the status of the shop to see if the updates
+are intended.
+Eventually, all arrival
+events will be processed and only <tt>EventStub</tt> events are left in the
+queue, which are then processed as per the earlier level.
+Once tested, you can then proceed to let arrive event's <tt>execute</tt> return
+serve event, and have serve event's <tt>execute</tt> method return
+<tt>EventStub</tt>.
+
+</p><p>Use the program
+<tt><a href="https://codecrunch.comp.nus.edu.sg/taskfile.php/5229/Main3.java">Main3.java</a></tt> 
+provided to test your program as shown below.
+User input is <span style="text-decoration: underline;">underlined</span>, and starts with an integer value representing the number of servers, followed by the arrival times of the customers. Input is terminated with a <tt>^D</tt> (CTRL-d).
+
+</p><p>
+</p><table border="1">
+<tbody>
+<tr>
+<td><tt> 
+$ java Main3<br>
+<span style="text-decoration: underline;">1</span><br>
+<span style="text-decoration: underline;">0.500</span><br> 
+<span style="text-decoration: underline;">0.600</span><br> 
+<span style="text-decoration: underline;">0.700</span><br>
+<span style="text-decoration: underline;">^D</span><br>
+0.500 1 arrives<br>
+0.500 1 serves by 1<br>
+0.600 2 arrives<br>
+0.600 2 waits at 1<br>
+0.700 3 arrives<br>
+0.700 3 leaves<br>
+1.500 1 done serving by 1<br>
+1.500 2 serves by 1<br>
+2.500 2 done serving by 1<br>
+-- End of Simulation --<br>
+</tt>
+</td></tr>
+
+<tr>
+<td><tt> 
+$ java Main3<br>
+<span style="text-decoration: underline;">1</span><br>
+<span style="text-decoration: underline;">0.500</span><br> 
+<span style="text-decoration: underline;">0.600</span><br> 
+<span style="text-decoration: underline;">0.700</span><br> 
+<span style="text-decoration: underline;">1.500</span><br> 
+<span style="text-decoration: underline;">1.600</span><br> 
+<span style="text-decoration: underline;">1.700</span><br>
+<span style="text-decoration: underline;">^D</span><br>
+0.500 1 arrives<br>
+0.500 1 serves by 1<br>
+0.600 2 arrives<br>
+0.600 2 waits at 1<br>
+0.700 3 arrives<br>
+0.700 3 leaves<br>
+1.500 1 done serving by 1<br>
+1.500 2 serves by 1<br>
+1.500 4 arrives<br>
+1.500 4 waits at 1<br>
+1.600 5 arrives<br>
+1.600 5 leaves<br>
+1.700 6 arrives<br>
+1.700 6 leaves<br>
+2.500 2 done serving by 1<br>
+2.500 4 serves by 1<br>
+3.500 4 done serving by 1<br>
+-- End of Simulation --<br>
+</tt>
+</td></tr>
+
+<tr>
+<td><tt> 
+$ java Main3<br>
+<span style="text-decoration: underline;">2</span><br>
+<span style="text-decoration: underline;">0.500</span><br> 
+<span style="text-decoration: underline;">0.600</span><br> 
+<span style="text-decoration: underline;">0.700</span><br> 
+<span style="text-decoration: underline;">1.500</span><br> 
+<span style="text-decoration: underline;">1.600</span><br> 
+<span style="text-decoration: underline;">1.700</span><br>
+<span style="text-decoration: underline;">^D</span><br>
+0.500 1 arrives<br>
+0.500 1 serves by 1<br>
+0.600 2 arrives<br>
+0.600 2 serves by 2<br>
+0.700 3 arrives<br>
+0.700 3 waits at 1<br>
+1.500 1 done serving by 1<br>
+1.500 3 serves by 1<br>
+1.500 4 arrives<br>
+1.500 4 waits at 1<br>
+1.600 2 done serving by 2<br>
+1.600 5 arrives<br>
+1.600 5 serves by 2<br>
+1.700 6 arrives<br>
+1.700 6 waits at 2<br>
+2.500 3 done serving by 1<br>
+2.500 4 serves by 1<br>
+2.600 5 done serving by 2<br>
+2.600 6 serves by 2<br>
+3.500 4 done serving by 1<br>
+3.600 6 done serving by 2<br>
+-- End of Simulation --<br>
+</tt>
+</td></tr>
+</tbody>
+</table>
+
+<h4>Level 4</h4>
+
+<p>You will also need to compute the statistics (see problem description above) at the end of the simulation.</p>
+
+<p>Rather than changing the implementation details of the existing
+programs, try to create a <tt>Statistic</tt> object, and update this
+object as the events are polled from the priority queue.
+
+</p><p>Use the program 
+<tt><a href="https://codecrunch.comp.nus.edu.sg/taskfile.php/5229/Main4.java">Main4.java</a></tt> 
+provided to test your program as shown below.
+User input is <span style="text-decoration: underline;">underlined</span>, and starts with an integer value representing the number of servers, followed by the arrival times of the customers. Input is terminated with a <tt>^D</tt> (CTRL-d).
+
+</p><p>
+</p><table border="1">
+<tbody>
+<tr>
+<td><tt> 
+$ java Main4<br>
+<span style="text-decoration: underline;">1</span><br>
+<span style="text-decoration: underline;">0.500</span><br> 
+<span style="text-decoration: underline;">0.600</span><br> 
+<span style="text-decoration: underline;">0.700</span><br>
+<span style="text-decoration: underline;">^D</span><br>
+0.500 1 arrives<br>
+0.500 1 serves by 1<br>
+0.600 2 arrives<br>
+0.600 2 waits at 1<br>
+0.700 3 arrives<br>
+0.700 3 leaves<br>
+1.500 1 done serving by 1<br>
+1.500 2 serves by 1<br>
+2.500 2 done serving by 1<br>
+[0.450 2 1]<br>
+</tt>
+</td></tr>
+
+<tr>
+<td><tt> 
+$ java Main4<br>
+<span style="text-decoration: underline;">1</span><br>
+<span style="text-decoration: underline;">0.500</span><br> 
+<span style="text-decoration: underline;">0.600</span><br> 
+<span style="text-decoration: underline;">0.700</span><br> 
+<span style="text-decoration: underline;">1.500</span><br> 
+<span style="text-decoration: underline;">1.600</span><br> 
+<span style="text-decoration: underline;">1.700</span><br>
+<span style="text-decoration: underline;">^D</span><br>
+0.500 1 arrives<br>
+0.500 1 serves by 1<br>
+0.600 2 arrives<br>
+0.600 2 waits at 1<br>
+0.700 3 arrives<br>
+0.700 3 leaves<br>
+1.500 1 done serving by 1<br>
+1.500 2 serves by 1<br>
+1.500 4 arrives<br>
+1.500 4 waits at 1<br>
+1.600 5 arrives<br>
+1.600 5 leaves<br>
+1.700 6 arrives<br>
+1.700 6 leaves<br>
+2.500 2 done serving by 1<br>
+2.500 4 serves by 1<br>
+3.500 4 done serving by 1<br>
+[0.633 3 3]
+</tt>
+</td></tr>
+
+<tr>
+<td><tt> 
+$ java Main4<br>
+<span style="text-decoration: underline;">2</span><br>
+<span style="text-decoration: underline;">0.500</span><br> 
+<span style="text-decoration: underline;">0.600</span><br> 
+<span style="text-decoration: underline;">0.700</span><br> 
+<span style="text-decoration: underline;">1.500</span><br> 
+<span style="text-decoration: underline;">1.600</span><br> 
+<span style="text-decoration: underline;">1.700</span><br>
+<span style="text-decoration: underline;">^D</span><br>
+0.500 1 arrives<br>
+0.500 1 serves by 1<br>
+0.600 2 arrives<br>
+0.600 2 serves by 2<br>
+0.700 3 arrives<br>
+0.700 3 waits at 1<br>
+1.500 1 done serving by 1<br>
+1.500 3 serves by 1<br>
+1.500 4 arrives<br>
+1.500 4 waits at 1<br>
+1.600 2 done serving by 2<br>
+1.600 5 arrives<br>
+1.600 5 serves by 2<br>
+1.700 6 arrives<br>
+1.700 6 waits at 2<br>
+2.500 3 done serving by 1<br>
+2.500 4 serves by 1<br>
+2.600 5 done serving by 2<br>
+2.600 6 serves by 2<br>
+3.500 4 done serving by 1<br>
+3.600 6 done serving by 2<br>
+[0.450 6 0]
+</tt>
+</td></tr>
+</tbody>
+</table>
+
+<h4>Level 5</h4>
+
+<p>Rather than a constant service time, each customer now has his/her own service time.  
+As part of reading input, it would be desired that the arrival time and
+service time of each customer to be read as a pair of double values
+of type <tt>Pair&lt;Double, Double&gt;</tt>.
+
+</p><p>However, a customer might not be served and just leave, or the service time of the customer is not known until he/she is being served.
+In order to cater to such situations, the pair of values would be of
+type <tt>Pair&lt;Double, Supplier&lt;Pair&gt;&gt;</tt> instead
+where the first value of the pair is the arrival time that is read at
+the start, and the second value of the pair is the service time that
+is read only when it is needed.
+
+</p><p>We illustrate with an example below.
+Suppose a <tt>Scanner</tt> object is created
+to read arrival and service times for three customers.
+
+</p><pre>jshell&gt; Scanner sc = new Scanner(System.in)
+sc ==&gt; java.util.Scanner[delimiters=\p{javaWhitespace}+] ...
+</pre>
+
+<p>We create three pairs of values of type 
+<tt>Pair&lt;Double, Supplier&lt;Double&gt;&gt;</tt> and store it in a <tt>List</tt>.
+
+</p><pre>jshell&gt; List&lt;Pair&lt;Double, Supplier&lt;Double&gt;&gt;&gt; list = Stream.&lt;Scanner&gt;generate(() -&gt; sc).
+   ...&gt; limit(3).
+   ...&gt; map(x -&gt; Pair.&lt;Double, Supplier&lt;Double&gt;&gt;of(sc.nextDouble(), () -&gt; sc.nextDouble())).
+   ...&gt; collect(Collectors.toList())
+0.5
+0.6
+0.7
+list ==&gt; [(0.5, $Lambda$35/0x00000008000d0840@bd8db5a), (0 ... 00000008000d0840@bd8db5a)]
+</pre>
+
+<p>Notice that each element in the list is a pair comprising a double value that has been read 
+as input by <tt>Scanner sc</tt>, and a
+<tt>Supplier&lt;Double&gt;</tt> of the form <tt>() -&gt; sc.nextDouble()</tt>
+where input is yet to be read.
+
+</p><pre>jshell&gt; list.get(0)
+$.. ==&gt; (0.5, $Lambda$35/0x00000008000d0840@bd8db5a)
+
+jshell&gt; list.get(1)
+$.. ==&gt; (0.6, $Lambda$35/0x00000008000d0840@bd8db5a)
+
+jshell&gt; list.get(2)
+$.. ==&gt; (0.7, $Lambda$35/0x00000008000d0840@bd8db5a)
+</pre>
+
+<p>Clearly, the three input are associated with the first value of each
+pair in the list.
+
+</p><pre>jshell&gt; list.get(0).first()
+$.. ==&gt; 0.5
+
+jshell&gt; list.get(1).first()
+$.. ==&gt; 0.6
+
+jshell&gt; list.get(2).first()
+$.. ==&gt; 0.7
+</pre>
+
+<p>The second value of each pair will not read input until the
+<tt>Supplier</tt>'s <tt>get</tt> method is invoked.
+For example,
+
+</p><pre>jshell&gt; list.get(1).second()
+$.. ==&gt; $Lambda$35/0x00000008000d0840@bd8db5a
+
+jshell&gt; list.get(1).second().get()
+1.0
+$.. ==&gt; 1.0
+</pre>
+
+<p>What is interesting in the above is that the second customer with the 
+arrival time of <tt>0.6</tt>, is the first one to be served with a new input of <tt>1.0</tt>.
+Also note that if you invoke the same jshell test again, another input is read and
+returned, rather than returning the value that was last read.
+
+</p><pre>jshell&gt; list.get(1).second().get() // same test
+2.0
+$.. ==&gt; 2.0
+</pre>
+
+<p>Use the program <tt><a href="https://codecrunch.comp.nus.edu.sg/taskfile.php/5229/Main5.java">Main5.java</a></tt> 
+provided to test your program.
+The <tt>Lazy</tt> class in <tt><a href="https://codecrunch.comp.nus.edu.sg/taskfile.php/5229/Lazy.java">Lazy.java</a></tt> 
+is also provided; use it if you need to cache the service time of 
+the customer.
+
+</p><p>User input starts with
+an integer value representing the number of servers, and an integer value representing the
+number of customers.
+This is followed by the arrival times of the customers.
+Lastly, a number of service times (could be more than necessary) are provided.
+
+</p><p>Moreover, rather than typing out the user input, it would be more convenient if you save the input in a file,
+say <tt>test5_1.in</tt> and pipe the contents of the file or redirect the file as part of user input.
+
+</p><ul>
+<li>To pipe the contents of the file, use: <tt>cat test5_1.in | java Main5</tt>
+</li><li>To redirect the file, use: <tt>java Main5 &lt; test5_1.in</tt>
+</li></ul>
+
+<pre>$ cat test5_1.in
+1 3
+0.500
+0.600
+0.700
+1.0
+1.0
+1.0
+$ cat test5_1.in | java Main5
+0.500 1 arrives
+0.500 1 serves by 1
+0.600 2 arrives
+0.600 2 waits at 1
+0.700 3 arrives
+0.700 3 leaves
+1.500 1 done serving by 1
+1.500 2 serves by 1
+2.500 2 done serving by 1
+[0.450 2 1]
+</pre>
+
+<pre>$ cat test5_2.in
+1 6
+0.500 
+0.600 
+0.700 
+1.500 
+1.600 
+1.700 
+1.0 
+1.0 
+1.0
+$ cat test5_2.in | java Main5
+0.500 1 arrives
+0.500 1 serves by 1
+0.600 2 arrives
+0.600 2 waits at 1
+0.700 3 arrives
+0.700 3 leaves
+1.500 1 done serving by 1
+1.500 2 serves by 1
+1.500 4 arrives
+1.500 4 waits at 1
+1.600 5 arrives
+1.600 5 leaves
+1.700 6 arrives
+1.700 6 leaves
+2.500 2 done serving by 1
+2.500 4 serves by 1
+3.500 4 done serving by 1
+[0.633 3 3]
+</pre>
+
+<pre>$ cat test5_3.in
+2 10
+0.000000
+0.313508
+1.204910
+2.776499
+3.876961
+3.909737
+9.006391
+9.043361
+9.105379
+9.159630
+0.313141
+0.103753
+0.699522
+0.014224
+0.154173
+0.012659
+1.477717
+2.593020
+0.296847
+0.051732
+$ cat test5_3.in | java Main5
+0.000 1 arrives
+0.000 1 serves by 1
+0.313 1 done serving by 1
+0.314 2 arrives
+0.314 2 serves by 1
+0.417 2 done serving by 1
+1.205 3 arrives
+1.205 3 serves by 1
+1.904 3 done serving by 1
+2.776 4 arrives
+2.776 4 serves by 1
+2.791 4 done serving by 1
+3.877 5 arrives
+3.877 5 serves by 1
+3.910 6 arrives
+3.910 6 serves by 2
+3.922 6 done serving by 2
+4.031 5 done serving by 1
+9.006 7 arrives
+9.006 7 serves by 1
+9.043 8 arrives
+9.043 8 serves by 2
+9.105 9 arrives
+9.105 9 waits at 1
+9.160 10 arrives
+9.160 10 waits at 2
+10.484 7 done serving by 1
+10.484 9 serves by 1
+10.781 9 done serving by 1
+11.636 8 done serving by 2
+11.636 10 serves by 2
+11.688 10 done serving by 2
+[0.386 10 0]
+</pre>
+
+<pre>$ cat test5_4.in
+2 10
+0.000000
+0.313141
+0.416894
+1.116416
+1.130640
+1.284813
+1.297472
+2.775189
+5.368209
+5.665056
+0.313263
+2.645188
+2.701273
+0.263761
+1.481332
+0.415031
+0.214836
+$ cat test5_4.in | java Main5
+0.000 1 arrives
+0.000 1 serves by 1
+0.313 2 arrives
+0.313 2 serves by 2
+0.313 1 done serving by 1
+0.417 3 arrives
+0.417 3 serves by 1
+1.116 4 arrives
+1.116 4 waits at 1
+1.131 5 arrives
+1.131 5 waits at 2
+1.285 6 arrives
+1.285 6 leaves
+1.297 7 arrives
+1.297 7 leaves
+2.775 8 arrives
+2.775 8 leaves
+2.958 2 done serving by 2
+2.958 5 serves by 2
+3.118 3 done serving by 1
+3.118 4 serves by 1
+3.222 5 done serving by 2
+4.599 4 done serving by 1
+5.368 9 arrives
+5.368 9 serves by 1
+5.665 10 arrives
+5.665 10 serves by 2
+5.783 9 done serving by 1
+5.880 10 done serving by 2
+[0.547 7 3]
+</pre>
+
+<h4>Level 6</h4>
+
+<p>Each server now has a queue of customers to allow multiple customers to queue up. A customer that chooses the first queue available and joins at the tail. 
+When a server is done serving a customer, it serves the next waiting customer at the head of the queue. 
+Hence, the queue should be a first-in-first-out (FIFO) structure.
+
+</p><p>Use the program <tt><a href="https://codecrunch.comp.nus.edu.sg/taskfile.php/5229/Main6.java">Main6.java</a></tt> 
+provided to test your program.
+</p><p>User input starts with
+three integer values representing the number of servers, followed by the
+maximum queue length, and the number of customers.
+This is followed by the arrival times of the customers.
+Lastly, a number of service times (could be more than necessary) are provided.
+
+</p><pre>$ cat test6_1.in
+2 1 10
+0.000000
+0.313508
+1.204910
+2.776499
+3.876961
+3.909737
+9.006391
+9.043361
+9.105379
+9.159630
+0.313141
+0.103753
+0.699522
+0.014224
+0.154173
+0.012659
+1.477717
+2.593020
+0.296847
+0.051732
+$ cat test6_1.in | java Main6
+0.000 1 arrives
+0.000 1 serves by 1
+0.313 1 done serving by 1
+0.314 2 arrives
+0.314 2 serves by 1
+0.417 2 done serving by 1
+1.205 3 arrives
+1.205 3 serves by 1
+1.904 3 done serving by 1
+2.776 4 arrives
+2.776 4 serves by 1
+2.791 4 done serving by 1
+3.877 5 arrives
+3.877 5 serves by 1
+3.910 6 arrives
+3.910 6 serves by 2
+3.922 6 done serving by 2
+4.031 5 done serving by 1
+9.006 7 arrives
+9.006 7 serves by 1
+9.043 8 arrives
+9.043 8 serves by 2
+9.105 9 arrives
+9.105 9 waits at 1
+9.160 10 arrives
+9.160 10 waits at 2
+10.484 7 done serving by 1
+10.484 9 serves by 1
+10.781 9 done serving by 1
+11.636 8 done serving by 2
+11.636 10 serves by 2
+11.688 10 done serving by 2
+[0.386 10 0]
+</pre>
+
+<pre>$ cat test6_2.in
+2 2 10
+0.000000
+0.313508
+1.204910
+2.776499
+3.876961
+3.909737
+9.006391
+9.043361
+9.105379
+9.159630
+0.313141
+0.103753
+0.699522
+0.014224
+0.154173
+0.012659
+1.477717
+2.593020
+0.296847
+0.051732
+$ cat test6_2.in | java Main6
+0.000 1 arrives
+0.000 1 serves by 1
+0.313 1 done serving by 1
+0.314 2 arrives
+0.314 2 serves by 1
+0.417 2 done serving by 1
+1.205 3 arrives
+1.205 3 serves by 1
+1.904 3 done serving by 1
+2.776 4 arrives
+2.776 4 serves by 1
+2.791 4 done serving by 1
+3.877 5 arrives
+3.877 5 serves by 1
+3.910 6 arrives
+3.910 6 serves by 2
+3.922 6 done serving by 2
+4.031 5 done serving by 1
+9.006 7 arrives
+9.006 7 serves by 1
+9.043 8 arrives
+9.043 8 serves by 2
+9.105 9 arrives
+9.105 9 waits at 1
+9.160 10 arrives
+9.160 10 waits at 1
+10.484 7 done serving by 1
+10.484 9 serves by 1
+10.781 9 done serving by 1
+10.781 10 serves by 1
+10.833 10 done serving by 1
+11.636 8 done serving by 2
+[0.300 10 0]
+</pre>
+
+<pre>$ cat test6_3.in
+2 2 10
+0.000000
+0.313141
+0.416894
+1.116416
+1.130640
+1.284813
+1.297472
+2.775189
+5.368209
+5.665056
+0.313263
+2.645188
+2.701273
+0.263761
+1.481332
+0.415031
+0.214836
+3.512654
+0.209277
+$ cat test6_3.in | java Main6
+0.000 1 arrives
+0.000 1 serves by 1
+0.313 2 arrives
+0.313 2 serves by 2
+0.313 1 done serving by 1
+0.417 3 arrives
+0.417 3 serves by 1
+1.116 4 arrives
+1.116 4 waits at 1
+1.131 5 arrives
+1.131 5 waits at 1
+1.285 6 arrives
+1.285 6 waits at 2
+1.297 7 arrives
+1.297 7 waits at 2
+2.775 8 arrives
+2.775 8 leaves
+2.958 2 done serving by 2
+2.958 6 serves by 2
+3.118 3 done serving by 1
+3.118 4 serves by 1
+3.222 6 done serving by 2
+3.222 7 serves by 2
+3.637 7 done serving by 2
+4.599 4 done serving by 1
+4.599 5 serves by 1
+4.814 5 done serving by 1
+5.368 9 arrives
+5.368 9 serves by 1
+5.665 10 arrives
+5.665 10 serves by 2
+5.874 10 done serving by 2
+8.881 9 done serving by 1
+[1.008 9 1]
+</pre>
+
+<h4>Level 7</h4>
+<!-- <h4>Implementing Server Rest</h4> -->
+
+<p>The servers are now allowed to take occasional breaks.  
+When a server finishes serving a customer, there is a chance that the server takes a rest for a certain amount of time.
+During the break, the server does not serve the next waiting customer.
+Upon returning from the break, the server serves the next customer in the queue (if any) immediately.</p>
+
+<p>Just like customer service time, we cannot pre-determine what rest time is accorded to which server at the beginning; it can only be decided during the simulation.
+That is to say, whenever a server rests, it will then know how much time it has to rest.
+The service time is supplied by a random number generator as shown in 
+the program <tt><a href="https://codecrunch.comp.nus.edu.sg/taskfile.php/5229/Main7.java">Main7.java</a></tt> 
+provided.
+
+</p><p>User input starts with values representing the number of servers, followed by the
+maximum queue length, the number of customers and the probability of a server resting.
+This is followed by the arrival times of the customers.
+Lastly, a number of service times (could be more than necessary) are provided.
+
+</p><p>Two sample runs are shown below: the first with no rest, and the second with probability of rest set to <tt>0.5</tt>.
+In this latter case, after server <tt>1</tt> is done serving customer <tt>2</tt> at <tt>0.417</tt>, he/she takes a rest.
+In the meantime, customers <tt>3</tt> and <tt>4</tt> are served by server <tt>2</tt>.  Server <tt>1</tt> resumes serving customer <tt>5</tt> after resting.
+
+</p><pre>$ cat 7_1.in
+2 2 10 0
+0.000000
+0.313508
+1.204910
+2.776499
+3.876961
+3.909737
+9.006391
+9.043361
+9.105379
+9.159630
+0.313141
+0.103753
+0.699522
+0.014224
+0.154173
+0.012659
+1.477717
+2.593020
+0.296847
+0.051732
+
+$ cat 7_1.in | java Main7
+0.000 1 arrives
+0.000 1 serves by 1
+0.313 1 done serving by 1
+0.314 2 arrives
+0.314 2 serves by 1
+0.417 2 done serving by 1
+1.205 3 arrives
+1.205 3 serves by 1
+1.904 3 done serving by 1
+2.776 4 arrives
+2.776 4 serves by 1
+2.791 4 done serving by 1
+3.877 5 arrives
+3.877 5 serves by 1
+3.910 6 arrives
+3.910 6 serves by 2
+3.922 6 done serving by 2
+4.031 5 done serving by 1
+9.006 7 arrives
+9.006 7 serves by 1
+9.043 8 arrives
+9.043 8 serves by 2
+9.105 9 arrives
+9.105 9 waits at 1
+9.160 10 arrives
+9.160 10 waits at 1
+10.484 7 done serving by 1
+10.484 9 serves by 1
+10.781 9 done serving by 1
+10.781 10 serves by 1
+10.833 10 done serving by 1
+11.636 8 done serving by 2
+[0.300 10 0]
+</pre>
+
+<pre>$ cat 7_2.in
+2 2 10 0.5
+0.000000
+0.313508
+1.204910
+2.776499
+3.876961
+3.909737
+9.006391
+9.043361
+9.105379
+9.159630
+0.313141
+0.103753
+0.699522
+0.014224
+0.154173
+0.012659
+1.477717
+2.593020
+0.296847
+0.051732
+
+$ cat 7_2.in | java Main7
+0.000 1 arrives
+0.000 1 serves by 1
+0.313 1 done serving by 1
+0.314 2 arrives
+0.314 2 serves by 1
+0.417 2 done serving by 1
+1.205 3 arrives
+1.205 3 serves by 2
+1.904 3 done serving by 2
+2.776 4 arrives
+2.776 4 serves by 2
+2.791 4 done serving by 2
+3.877 5 arrives
+3.877 5 serves by 1
+3.910 6 arrives
+3.910 6 serves by 2
+3.922 6 done serving by 2
+4.031 5 done serving by 1
+9.006 7 arrives
+9.006 7 serves by 1
+9.043 8 arrives
+9.043 8 serves by 2
+9.105 9 arrives
+9.105 9 waits at 1
+9.160 10 arrives
+9.160 10 waits at 1
+10.484 7 done serving by 1
+10.484 9 serves by 1
+10.781 9 done serving by 1
+11.636 8 done serving by 2
+14.644 10 serves by 1
+14.696 10 done serving by 1
+[0.686 10 0]
+</pre>
+
+<h4>Level 8</h4>
+<!-- <h4>Implementing Self-CheckOut Counters</h4> -->
+
+<p>There are now <tt>N<sub>self</sub></tt> self-checkout counters set up.
+In particular, if there are <tt>k</tt> human servers, then the self-checkout counters are identified from <tt>k + 1</tt> onwards. 
+
+</p><p>Take note of the following:
+
+</p><ul>
+<li>All self-checkout counters share the same queue. 
+</li><li>Unlike human servers, self-checkout counters do not rest.
+</li><li>When we print out the wait event, we always say that the customer is waiting for the self-checkout counter <tt>k + 1</tt>, even though this customer may eventually be served by another self-checkout counter.
+</li></ul>
+
+<p>Use the program <tt><a href="https://codecrunch.comp.nus.edu.sg/taskfile.php/5229/Main8.java">Main8.java</a></tt> 
+provided to test your program.
+</p><p>User input starts with values representing the number of servers, the number of
+self-check counters, the
+maximum queue length, the number of customers and the probability of a server resting.
+This is followed by the arrival times of the customers.
+Lastly, a number of service times (could be more than necessary) are provided.
+
+</p><pre>$ cat 8_1.in
+2 0 2 20 0.5
+0.000000
+0.313508
+1.204910
+2.776499
+3.876961
+3.909737
+9.006391
+9.043361
+9.105379
+9.159630
+9.224614
+10.147994
+11.204933
+12.428914
+13.109178
+15.263626
+15.524296
+15.939974
+17.793096
+18.765423
+0.313141
+0.103753
+0.699522
+0.014224
+0.154173
+0.012659
+1.477717
+2.593020
+0.296847
+0.051732
+3.489595
+0.368667
+0.160532
+2.869150
+0.895790
+1.043020
+0.006333
+0.576351
+0.742370
+
+$ cat 8_1.in | java Main8
+0.000 1 arrives
+0.000 1 serves by 1
+0.313 1 done serving by 1
+0.314 2 arrives
+0.314 2 serves by 1
+0.417 2 done serving by 1
+1.205 3 arrives
+1.205 3 serves by 2
+1.904 3 done serving by 2
+2.776 4 arrives
+2.776 4 serves by 2
+2.791 4 done serving by 2
+3.877 5 arrives
+3.877 5 serves by 1
+3.910 6 arrives
+3.910 6 serves by 2
+3.922 6 done serving by 2
+4.031 5 done serving by 1
+9.006 7 arrives
+9.006 7 serves by 1
+9.043 8 arrives
+9.043 8 serves by 2
+9.105 9 arrives
+9.105 9 waits at 1
+9.160 10 arrives
+9.160 10 waits at 1
+9.225 11 arrives
+9.225 11 waits at 2
+10.148 12 arrives
+10.148 12 waits at 2
+10.484 7 done serving by 1
+10.484 9 serves by 1
+10.781 9 done serving by 1
+11.205 13 arrives
+11.205 13 waits at 1
+11.636 8 done serving by 2
+11.636 11 serves by 2
+11.688 11 done serving by 2
+11.688 12 serves by 2
+12.429 14 arrives
+12.429 14 waits at 2
+13.109 15 arrives
+13.109 15 waits at 2
+14.644 10 serves by 1
+15.013 10 done serving by 1
+15.178 12 done serving by 2
+15.178 14 serves by 2
+15.264 16 arrives
+15.264 16 waits at 1
+15.338 14 done serving by 2
+15.338 15 serves by 2
+15.524 17 arrives
+15.524 17 waits at 2
+15.940 18 arrives
+15.940 18 waits at 2
+17.793 19 arrives
+17.793 19 leaves
+18.207 15 done serving by 2
+18.207 17 serves by 2
+18.765 20 arrives
+18.765 20 waits at 2
+19.103 17 done serving by 2
+19.103 18 serves by 2
+20.146 18 done serving by 2
+40.474 13 serves by 1
+40.480 13 done serving by 1
+40.480 16 serves by 1
+41.056 16 done serving by 1
+57.110 20 serves by 2
+57.852 20 done serving by 2
+[6.025 19 1]
+</pre>
+
+<pre>$ cat 8_2.in
+2 1 2 20 0.5
+0.000000
+0.313508
+1.204910
+2.776499
+3.876961
+3.909737
+9.006391
+9.043361
+9.105379
+9.159630
+9.224614
+10.147994
+11.204933
+12.428914
+13.109178
+15.263626
+15.524296
+15.939974
+17.793096
+18.765423
+0.313141
+0.103753
+0.699522
+0.014224
+0.154173
+0.012659
+1.477717
+2.593020
+0.296847
+0.051732
+3.489595
+0.368667
+0.160532
+2.869150
+0.895790
+1.043020
+0.006333
+0.576351
+0.742370
+3.007573
+
+$ cat 8_2.in | java Main8
+0.000 1 arrives
+0.000 1 serves by 1
+0.313 1 done serving by 1
+0.314 2 arrives
+0.314 2 serves by 1
+0.417 2 done serving by 1
+1.205 3 arrives
+1.205 3 serves by 2
+1.904 3 done serving by 2
+2.776 4 arrives
+2.776 4 serves by 2
+2.791 4 done serving by 2
+3.877 5 arrives
+3.877 5 serves by 1
+3.910 6 arrives
+3.910 6 serves by 2
+3.922 6 done serving by 2
+4.031 5 done serving by 1
+9.006 7 arrives
+9.006 7 serves by 1
+9.043 8 arrives
+9.043 8 serves by 2
+9.105 9 arrives
+9.105 9 serves by self-check 3
+9.160 10 arrives
+9.160 10 waits at 1
+9.225 11 arrives
+9.225 11 waits at 1
+9.402 9 done serving by self-check 3
+10.148 12 arrives
+10.148 12 serves by self-check 3
+10.200 12 done serving by self-check 3
+10.484 7 done serving by 1
+10.484 10 serves by 1
+11.205 13 arrives
+11.205 13 serves by self-check 3
+11.574 13 done serving by self-check 3
+11.636 8 done serving by 2
+12.429 14 arrives
+12.429 14 serves by self-check 3
+12.589 14 done serving by self-check 3
+13.109 15 arrives
+13.109 15 serves by self-check 3
+13.974 10 done serving by 1
+13.974 11 serves by 1
+14.869 11 done serving by 1
+15.264 16 arrives
+15.264 16 serves by 1
+15.524 17 arrives
+15.524 17 serves by 2
+15.531 17 done serving by 2
+15.940 18 arrives
+15.940 18 waits at 1
+15.978 15 done serving by self-check 3
+16.307 16 done serving by 1
+16.307 18 serves by 1
+16.883 18 done serving by 1
+17.793 19 arrives
+17.793 19 serves by 1
+18.535 19 done serving by 1
+18.765 20 arrives
+18.765 20 serves by 1
+21.773 20 done serving by 1
+[0.322 20 0]
+</pre>
+
+<pre>$ cat 8_3.in
+1 2 2 20 0.5
+0.000000
+0.313508
+1.204910
+2.776499
+3.876961
+3.909737
+9.006391
+9.043361
+9.105379
+9.159630
+9.224614
+10.147994
+11.204933
+12.428914
+13.109178
+15.263626
+15.524296
+15.939974
+17.793096
+18.765423
+0.313141
+0.103753
+0.699522
+0.014224
+0.154173
+0.012659
+1.477717
+2.593020
+0.296847
+0.051732
+3.489595
+0.368667
+0.160532
+2.869150
+0.895790
+1.043020
+0.006333
+0.576351
+0.742370
+3.007573
+
+$ cat 8_3.in | java Main8
+0.000 1 arrives
+0.000 1 serves by 1
+0.313 1 done serving by 1
+0.314 2 arrives
+0.314 2 serves by 1
+0.417 2 done serving by 1
+1.205 3 arrives
+1.205 3 serves by self-check 2
+1.904 3 done serving by self-check 2
+2.776 4 arrives
+2.776 4 serves by self-check 2
+2.791 4 done serving by self-check 2
+3.877 5 arrives
+3.877 5 serves by 1
+3.910 6 arrives
+3.910 6 serves by self-check 2
+3.922 6 done serving by self-check 2
+4.031 5 done serving by 1
+9.006 7 arrives
+9.006 7 serves by 1
+9.043 8 arrives
+9.043 8 serves by self-check 2
+9.105 9 arrives
+9.105 9 serves by self-check 3
+9.160 10 arrives
+9.160 10 waits at 1
+9.225 11 arrives
+9.225 11 waits at 1
+9.402 9 done serving by self-check 3
+10.148 12 arrives
+10.148 12 serves by self-check 3
+10.200 12 done serving by self-check 3
+10.484 7 done serving by 1
+10.484 10 serves by 1
+11.205 13 arrives
+11.205 13 serves by self-check 3
+11.574 13 done serving by self-check 3
+11.636 8 done serving by self-check 2
+12.429 14 arrives
+12.429 14 serves by self-check 2
+12.589 14 done serving by self-check 2
+13.109 15 arrives
+13.109 15 serves by self-check 2
+13.974 10 done serving by 1
+14.823 11 serves by 1
+15.264 16 arrives
+15.264 16 serves by self-check 3
+15.524 17 arrives
+15.524 17 waits at 1
+15.718 11 done serving by 1
+15.718 17 serves by 1
+15.725 17 done serving by 1
+15.940 18 arrives
+15.940 18 serves by 1
+15.978 15 done serving by self-check 2
+16.307 16 done serving by self-check 3
+16.516 18 done serving by 1
+17.793 19 arrives
+17.793 19 serves by self-check 2
+18.535 19 done serving by self-check 2
+18.765 20 arrives
+18.765 20 serves by self-check 2
+21.773 20 done serving by self-check 2
+[0.356 20 0]
+</pre>
+
+<pre>$ cat 8_4.in
+1 2 2 20 0.5
+0.000000
+0.313508
+1.204910
+2.776499
+3.876961
+3.909737
+9.006391
+9.043361
+9.105379
+9.159630
+9.224614
+10.147994
+11.204933
+12.428914
+13.109178
+15.263626
+15.524296
+15.939974
+17.793096
+18.765423
+3.131408
+1.037533
+6.995223
+0.142237
+1.541726
+0.126590
+14.777172
+25.930199
+2.968470
+0.517321
+34.895950
+3.686675
+1.605316
+28.691500
+8.957896
+1.043020
+0.006333
+0.576351
+0.742370
+3.007573
+
+$ cat 8_4.in | java Main8
+0.000 1 arrives
+0.000 1 serves by 1
+0.314 2 arrives
+0.314 2 serves by self-check 2
+1.205 3 arrives
+1.205 3 serves by self-check 3
+1.351 2 done serving by self-check 2
+2.776 4 arrives
+2.776 4 serves by self-check 2
+2.919 4 done serving by self-check 2
+3.131 1 done serving by 1
+3.877 5 arrives
+3.877 5 serves by 1
+3.910 6 arrives
+3.910 6 serves by self-check 2
+4.036 6 done serving by self-check 2
+5.419 5 done serving by 1
+8.200 3 done serving by self-check 3
+9.006 7 arrives
+9.006 7 serves by 1
+9.043 8 arrives
+9.043 8 serves by self-check 2
+9.105 9 arrives
+9.105 9 serves by self-check 3
+9.160 10 arrives
+9.160 10 waits at 1
+9.225 11 arrives
+9.225 11 waits at 1
+10.148 12 arrives
+10.148 12 waits at self-check 2
+11.205 13 arrives
+11.205 13 waits at self-check 2
+12.074 9 done serving by self-check 3
+12.074 12 serves by self-check 3
+12.429 14 arrives
+12.429 14 waits at self-check 2
+12.591 12 done serving by self-check 3
+12.591 13 serves by self-check 3
+13.109 15 arrives
+13.109 15 waits at self-check 2
+15.264 16 arrives
+15.264 16 leaves
+15.524 17 arrives
+15.524 17 leaves
+15.940 18 arrives
+15.940 18 leaves
+17.793 19 arrives
+17.793 19 leaves
+18.765 20 arrives
+18.765 20 leaves
+23.784 7 done serving by 1
+24.631 10 serves by 1
+28.318 10 done serving by 1
+28.318 11 serves by 1
+29.923 11 done serving by 1
+34.974 8 done serving by self-check 2
+34.974 14 serves by self-check 2
+47.487 13 done serving by self-check 3
+47.487 15 serves by self-check 3
+56.445 15 done serving by self-check 3
+63.665 14 done serving by self-check 2
+[6.320 15 5]
+</pre>
+
+<h4><i>Remaining level(s) for correctness/style checking...</i></h4>
+		</div></div>                          
+									<input type="hidden" id="tid" name="tid" value="5229">
+		</div>
+		<!-- end content -->
+</div>
+<!-- end inner -->
+<div id="loading-mask">
+        <p id="loading_mask_loader" class="loader" style="display: none;"> <img alt="Loading..." src="./CodeCrunch_files/ajax-loader-tr.gif"> <br>
+                Please wait... </p>
+</div>
+<script type="text/javascript">
+$(".star").rating({
+        focus: function(value, link) {
+                var tip = $("#rating_text");
+                tip[0].data = tip[0].data || tip.html(); 
+                tip.html(link.title || "value: " + value);
+        },
+        blur: function(value, link) {
+                var tip = $("#rating_text");
+                $("#rating_text").html(tip[0].data || "");
+        },
+        callback: function(value, link) {
+                $.ajax({
+                        type: "POST",
+                        url: "task_updaterating.php",
+                        data: ({tid:$("#tid").val(), rating:value}),
+                        success: function(html) {
+                                var msg = html.split(";");
+                                $("#rating_text").removeClass().addClass(msg[0]);
+                                $("#rating_text").html(msg[1]);
+                        }
+                });
+        }
+});
+
+function getComments() {
+        $.ajax({
+                type: "POST",
+                url: "task_getcomments.php",
+                data: ({tid:$("#tid").val()}),
+                success: function(html) {
+                        $("#commentList").html(html);
+                }
+        });
+}
+
+function doTaskGrade(e, d) {
+        $.ajax({
+                type: "POST",
+                url: "doTaskGrade.php",
+                data: ({tid:$("#tid").val()}),
+                success: function(html) {
+                        var msg = html.split(";");
+                        $("#practiceNotification").removeClass().addClass(msg[0]);
+                        $("#practiceNotification").html(msg[1]);
+                }
+        });
+
+}
+
+function doCourseTaskGrade(e, d) {
+        $.ajax({
+                type: "POST",
+                url: "doTaskGrade.php",
+                data: ({tid:$("#tid").val(), course_id:$("#course_id").val(), do_course:1}),
+                success: function(html) {
+                        var msg = html.split(";");
+                        $("#courseNotification").removeClass().addClass(msg[0]);
+                        $("#courseNotification").html(msg[1]);
+                }
+        });
+
+}
+
+function addComment() {
+        $.ajax({
+                type: "POST",
+                url: "task_addcomment.php",
+                data: ({tid:$("#tid").val(), comment:encodeURIComponent($("#comment").val())}),
+                success: function(html) {
+                        var msg = html.split(";");
+                        $("#commentNotification").removeClass().addClass(msg[0]);
+                        $("#commentNotification").html(msg[1]);
+                        
+                        getComments();
+                }
+        });
+}
+
+function deleteComment(c) {
+        $.ajax({
+                type: "POST",
+                url: "task_deletecomment.php",
+                data: ({comment_id:c}),
+                success: function(html) {
+                        var msg = html.split(";");
+                        $("#commentNotification").removeClass().addClass(msg[0]);
+                        $("#commentNotification").html(msg[1]);
+                        
+                        getComments();
+                }
+        });
+}
+
+function getClassify(){
+                $.ajax({
+                type: "GET",
+                url: "task_classify.php",
+                data: ({tid:$("#tid").val()}),
+                success: function(html) {
+                        $("#classifyList").html(html);
+                }
+        });
+}
+
+function getTutorial(){
+        $.ajax({
+                type: "POST",
+                url: "task_gettutorials.php",
+                data: ({tid:$("#tid").val()}),
+                success: function(html) {
+                        $("#tutorialList").html(html);
+                }
+        });
+}
+
+function getQueries() {
+        $.ajax({
+                type: "POST",
+                url: "task_getqueries.php",
+                data: ({tid:$("#tid").val()}),
+                success: function(html) {
+                        $("#queryList").html(html);
+                }
+        });
+}
+
+function addQuery() {
+        $.ajax({
+                type: "POST",
+                url: "task_addquery.php",
+                data: ({tid:$("#tid").val(), contest_id:$("#contest_id").val(), query:encodeURIComponent($("#query").val())}),
+                success: function(html) {
+                        var msg = html.split(";");
+                        $("#queryNotification").removeClass().addClass(msg[0]);
+                        $("#queryNotification").html(msg[1]);
+                        
+                        getQueries();
+                }
+        });
+}
+
+function deleteQuery(q) {
+        $.ajax({
+                type: "POST",
+                url: "task_deletequery.php",
+                data: ({query_id:q}),
+                success: function(html) {
+                        var msg = html.split(";");
+                        $("#queryNotification").removeClass().addClass(msg[0]);
+                        $("#queryNotification").html(msg[1]);
+                        
+                        getQueries();
+                }
+        });
+}
+
+function addTag() {
+        $.ajax({
+                type: "POST",
+                url: "tag_add.php",
+                data: ({tid:$("#tid").val(), tags:$("#tagwords").val()}),
+                success: function(html) {
+                        var msg = html.split(";");
+                        $("#tagNotification").removeClass().addClass(msg[0]);
+                        $("#tagNotification").html(msg[1]);
+                        
+                        getClassify();
+                }
+        });
+}
+
+
+$(document).ready(function() {
+        getComments();
+        getQueries();
+        getClassify();
+        getTutorial();
+        //getCloud();
+});
+
+$(document).everyTime(60000, function(i) {
+        if ($("#tid").val() != "" && $("#tid").val() != null) {
+                $.ajax({
+                        type: "POST",
+                        url: "task_checkcontest.php",
+                        data: ({tid:$("#tid").val()}),
+                        success: function(html) {
+                                if (html == "0") {
+                                        $("#contest_submit").html("");
+                                }
+                        }
+                });
+                $.ajax({
+                        type: "POST",
+                        url: "task_checkcourse.php",
+                        data: ({tid:$("#tid").val()}),
+                        success: function(html) {
+                                if (html == "0") {
+                                        $("#course_submit").html("");
+                                }
+                        }
+                });
+        }
+}, 0);
+
+$('#loading_mask_loader')
+        .hide()  // hide it initially
+        .ajaxStart(function() {
+                $(this).show();
+        })
+        .ajaxStop(function() {
+                $(this).hide();
+        });
+        
+</script>
+
+
+</div> <!-- end outer -->
+
+</div> <!-- end container -->
+
+<!-- START NUS-Footer --> 
+<div id="nusfooter" class="nusbody">
+<div id="nusfooter_ml"><div id="nusfooter_mr">
+<div id="nusfooter_tc"><div id="nusfooter_tl"><div id="nusfooter_tr">
+<div id="nusfooter_bc"><div id="nusfooter_bl"><div id="nusfooter_br">
+<div class="inner"><div class="left"><p>© Copyright 2009-2022 National University of Singapore. All Rights Reserved.</p>  
+<p class="nusfooterlinks">
+<a href="https://www.nus.edu.sg/terms.php">Terms of Use</a> |
+<a href="https://www.nus.edu.sg/policy.php">Privacy</a> |
+<a href="https://www.nus.edu.sg/nondiscrim.php">Non-discrimination</a></p> 
+</div>    
+<div class="right">
+<a href="https://mysoc.nus.edu.sg/">MySoC</a> |
+<a href="https://docs.comp.nus.edu.sg/cf/">Computing Facilities</a> |
+<a href="https://www.nus.edu.sg/search/">Search</a> |
+<a href="https://www.nus.edu.sg/campusmap/">Campus Map</a>
+<p>School of Computing, National University of Singapore</p>
+</div>    
+<div style="clear: both;"> </div>
+</div>
+</div></div></div>
+</div></div></div>
+</div></div>
+</div>
+<!-- END NUS-Footer -->
+
+<script>mendeleyWebImporter = {
+  downloadPdfs(e,t) { return this._call('downloadPdfs', [e,t]); },
+  open() { return this._call('open', []); },
+  setLoginToken(e) { return this._call('setLoginToken', [e]); },
+  _call(methodName, methodArgs) {
+    const id = Math.random();
+    window.postMessage({ id, token: '0.7049591819551533', methodName, methodArgs }, 'https://codecrunch.comp.nus.edu.sg');
+    return new Promise(resolve => {
+      const listener = window.addEventListener('message', event => {
+        const data = event.data;
+        if (typeof data !== 'object' || !('result' in data) || data.id !== id) return;
+        window.removeEventListener('message', listener);
+        resolve(data.result);
+      });
+    });
+  }
+};</script><div id="highlighter--hover-tools" style="display: none;">
+    <div id="highlighter--hover-tools--container">
+        <div class="highlighter--icon highlighter--icon-copy" title="Copy"></div>
+        <div class="highlighter--icon highlighter--icon-change-color" title="Change Color"></div>
+        <div class="highlighter--icon highlighter--icon-delete" title="Delete"></div>
+    </div>
+</div></body><grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration></html>
